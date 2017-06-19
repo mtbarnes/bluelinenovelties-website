@@ -133,11 +133,14 @@ body {
 
 
 .black-bg {
-    background-color: #333;
+    background-color: #111;
 }
 
+/* .Brown-bg { */
+/*     background-color: #5a2800; */
+/* } */
 .Brown-bg {
-    background-color: #5a2800;
+    background-color: #232323;
 }
 
 .gray-bg {
@@ -213,7 +216,7 @@ body {
     }
 
 .page-icon {
-    color: #333;
+    color: #000;
     font-size: 50px;
     line-height: 50px;
     padding-bottom: 15px;
@@ -221,19 +224,19 @@ body {
 }
 
 .page-icon-sm {
-    color: #333;
+    color: #000;
     font-size: 25px;
     margin-bottom: 15px;
 }
 
 a {
-    color: #333;
+    color: #3f6b85;
     cursor: pointer;
     text-decoration: none;
 }
 
     a:hover {
-        color: #c7a674;
+        color: #f07830;
     }
 
 i.left, .i-left {
@@ -245,7 +248,7 @@ i.right, .i-right {
 }
 
 hr {
-    border-top: 1px solid #f1f1f1 !important;
+    border-top: 1px solid #d8f8ff !important;
     margin-bottom: 0 !important;
     margin-top: 0 !important;
 }
@@ -265,7 +268,7 @@ object {
 
 /*heading*/
 h1, h2, h3, h4, h5, h6 {
-    color: #333;
+    color: #3f6b85;
     text-transform: uppercase;
     font-family: 'Raleway', sans-serif;
     font-weight: 700;
@@ -305,7 +308,7 @@ h6 {
     }
 
     h1.color, h2.color, h3.color, h4.color, h5.color, h6.color, h6 .color {
-        color: #c7a674;
+        color: #4878a8;
     }
 
 
@@ -321,7 +324,7 @@ h6 {
 
 .page-title-alt {
     margin-bottom: 30px;
-    color: #c7a674;
+    color: #4878b8;
 }
 
 .content-title {
@@ -364,7 +367,7 @@ h6 {
 p {
     font-family: 'Open Sans', sans-serif;
     font-size: 14px;
-    color: #666666;
+    color: #4878a8;
     line-height: 1.6;
     font-weight: 400;
     margin-bottom: 15px;
@@ -393,7 +396,7 @@ p {
         }
 
         p.color p.small.color, p.large.color, p.lead.color, p .color, .color {
-            color: #c7a674;
+            color: #13394c;
         }
 
 /* listing */
@@ -439,11 +442,11 @@ a {
 }
 
 .Link {
-    color: #333;
+    color: #3f6b85;
 }
 
     .Link:hover {
-        color: #c7a674;
+        color: #4878a8;
     }
 
 .link-d {
@@ -451,7 +454,7 @@ a {
 }
 
     .link-d:hover {
-        color: #c7a674;
+        color: #4878a8;
     }
 
 
@@ -504,19 +507,19 @@ i.right {
 }
 
 .btn-black {
-    background-color: #333;
+    background-color: #3f6b85;
     border-color: transparent;
     color: #fff;
 }
 
     .btn-black:hover {
-        background-color: #c7a674;
+        background-color: #4878a8;
         border-color: transparent;
         color: #fff;
     }
 
 .btn-color {
-    background-color: #c7a674;
+    background-color: #4878a8;
     border-color: transparent;
     color: #fff;
 }
@@ -530,13 +533,13 @@ i.right {
 .btn-white {
     background-color: rgba(255,255,255,1);
     border-color: transparent;
-    color: #333;
+    color: #3f6b85;
 }
 
     .btn-white:hover {
         background-color: rgba(255,255,255,0.85);
         border-color: transparent;
-        color: #333;
+        color: #3f6b85;
     }
 
 /* Form Style   ||--------------------------------*/
@@ -566,7 +569,7 @@ button, input, textarea, select {
         -webkit-border-radius: 0px !important;
         -moz-border-radius: 0px !important;
         border-radius: 0px !important;
-        color: #333;
+        color: #3f6b85;
         outline: none;
         font-weight: 400;
         letter-spacing: 1px;
@@ -588,7 +591,7 @@ button, input, textarea, select {
 
         input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus, input[type="number"]:focus, input[type="radio"]:focus, input[type="checkbox"]:focus, input[type="password"]:focus, textarea:focus {
             border: 1px solid rgba(0, 0, 0, 0.7);
-            color: #333;
+            color: #3f6b85;
         }
 
     input.input-lg, .input-lg {
@@ -619,7 +622,7 @@ textarea {
 }
 
 label {
-    color: #333;
+    color: #3f6b85;
     font-size: 12px;
     margin-bottom: 10px;
     padding-right: 3px;
@@ -1721,7 +1724,7 @@ form label.error {
     text-align: center;
     top: 0px;
     z-index: 1000;
-    color: #fff;
+    color: #314679;
     width: 100%;
     height: 99px;
     transition: background-color 200ms ease-in-out 0s;
@@ -1782,6 +1785,7 @@ form label.error {
     float: left;
     text-align: left;
     display: inline-block;
+    color: #314679;/* f07830 */
 }
 
     .logo a {
@@ -1830,7 +1834,7 @@ form label.error {
 
             .nav-menu ul.nav-menu-inner li a {
                 display: block;
-                color: #fff;
+                color: #a8d8f0;
                 font-size: 13px;
                 line-height: 1;
                 padding: 43px 12px;
@@ -1860,7 +1864,7 @@ form label.error {
         .nav-menu ul.nav-menu-inner li a:hover,
         .header-fixed .nav-menu ul.nav-menu-inner li a.current,
         .header-fixed .nav-menu ul.nav-menu-inner li.current a {
-            color: #c7a674;
+            color: #b3aba8;
         }
 
 @media all and (max-width: 1024px) {
@@ -1876,7 +1880,7 @@ form label.error {
         float: none;
         display: block;
         width: 100%;
-        background: #333;
+        background: #3f6b85;
         overflow-y: auto;
         display: none;
         z-index: 999;
@@ -2019,7 +2023,7 @@ form label.error {
 /*Icon Style 1*/
 
 .content-box:hover .icon-top, .content-box:hover .icon-left, .content-box:hover .icon-right {
-    background-color: #c7a674;
+    background-color: #4878a8;
     color: #fff;
 }
 
@@ -2056,7 +2060,7 @@ form label.error {
 }
 
 .icon-color {
-    background-color: #c7a674;
+    background-color: #4878a8;
     color: #fff;
 }
 
@@ -2071,7 +2075,7 @@ form label.error {
 }
 
 .content-box:hover .icon-black {
-    background-color: #c7a674;
+    background-color: #4878a8;
     color: #fff;
 }
 
@@ -2262,7 +2266,7 @@ o-flow-hidden {
         .nf-carousel-theme .owl-controls .owl-buttons .owl-prev:hover,
         .nf-carousel-theme .owl-controls .owl-buttons .owl-next:hover {
             /*background: #fff;*/
-            color: #c7a674;
+            color: #4878a8;
         }
 
     .content-carousel .owl-controls .owl-buttons .owl-next,
@@ -2510,7 +2514,7 @@ ul.portfolio-btn-wraper, .portfolio-btn-wraper {
         }
 
             .portfolio-filter li a.active {
-                color: #c7a674;
+                color: #4878a8;
             }
 
 /*-------------------------------------------------------------------------------------------*/
@@ -2578,7 +2582,7 @@ ul.portfolio-btn-wraper, .portfolio-btn-wraper {
             }
 
                 .team-item-img .team-item-detail .team-item-detail-inner .social li a:hover {
-                    color: #c7a674;
+                    color: #4878a8;
                 }
 
 .team-item-info {
@@ -2890,7 +2894,7 @@ ul.portfolio-btn-wraper, .portfolio-btn-wraper {
 }
 
     .pricing-box.highlight {
-        border-top-color: #c7a674;
+        border-top-color: #4878a8;
     }
 
 .pricing-padding {
@@ -3096,6 +3100,6 @@ ul.portfolio-btn-wraper, .portfolio-btn-wraper {
         }
 
         .footer .social li:hover a {
-            border-color: #c7a674;
-            color: #c7a674;
+            border-color: #4878a8;
+            color: #4878a8;
         }
