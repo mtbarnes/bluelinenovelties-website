@@ -307,8 +307,16 @@ h6 {
         color: #fff;
     }
 
+    h1.black, h2.black, h3.black, h4.black, h5.black, h6.black, h6 .black {
+        color: #333;
+    }
+
     h1.color, h2.color, h3.color, h4.color, h5.color, h6.color, h6 .color {
         color: #4878a8;
+    }
+
+    h1.color2, h2.color2, h3.color2, h4.color2, h5.color2, h6.color2, h6 .color2 {
+        color: #ffe545;
     }
 
 
@@ -1785,7 +1793,7 @@ form label.error {
     float: left;
     text-align: left;
     display: inline-block;
-    color: #314679;/* f07830 */
+    color: #fff;/* f07830 */
 }
 
     .logo a {
