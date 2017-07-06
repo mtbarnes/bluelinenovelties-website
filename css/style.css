@@ -4,8 +4,8 @@
 @import url("./plugins/owl.carousel.css");
 @import url("./plugins/jquery.fs.tipper.css");
 @import url("./plugins/magnific-popup.css");
-@import url(http://fonts.googleapis.com/css?family=Quicksand:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic);
-@import url(http://fonts.googleapis.com/css?family=Handlee:400,100,200,300,500,600,700,800,900);
+@import url(http://fonts.googleapis.com/css?family=Nunito:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic);
+@import url(http://fonts.googleapis.com/css?family=Mallanna:400,100,200,300,500,600,700,800,900);
 
 /*
 * BASIC
@@ -56,7 +56,7 @@
 /* General Style   ||-------------------*/
 body {
     color: #183048;
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Mallanna', sans-serif;
     font-weight: 400;
     font-size: 16px;
     /*line-height: 1.42857;*/
@@ -270,8 +270,8 @@ object {
 h1, h2, h3, h4, h5, h6 {
     color: #3f6b85;
     text-transform: uppercase;
-    font-family: 'Handlee', sans-serif;
-    font-weight: 700;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
     margin-top: 0px;
     line-height: 1.3;
     margin-bottom: 15px;
@@ -284,7 +284,7 @@ h1 {
 
 h2 {
     font-size: 36px;
-    font-weight: 800;
+    font-weight: 600;
 }
 
 h3 {
@@ -296,11 +296,11 @@ h4 {
 }
 
 h5 {
-    font-size: 14px;
+    font-size: 16px;
 }
 
 h6 {
-    font-size: 12px;
+    font-size: 14px;
 }
 
     h1.white, h2.white, h3.white, h4.white, h5.white, h6.white, h6 .white {
@@ -322,12 +322,12 @@ h6 {
 
 .page-title {
     margin-bottom: 60px;
-    font-weight: 800;
+    font-weight: 600;
 }
 
 .page-title2 {
     margin-bottom: 90px;
-    font-weight: 800;
+    font-weight: 600;
 }
 
 .page-title-alt {
@@ -358,7 +358,7 @@ h6 {
 }
 
 .text-extra-bold {
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .text-italic {
@@ -373,7 +373,7 @@ h6 {
 
 /*Paragraph*/
 p {
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Mallanna', sans-serif;
     font-size: 16px;
     color: #4878a8;
     line-height: 1.6;
@@ -468,10 +468,10 @@ a {
 
 /* Button Style   ||--------------------------------*/
 .btn, button {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1;
-    font-weight: 600;
-    font-family: 'Handlee', sans-serif;
+    font-weight: 300;
+    font-family: 'Nunito', sans-serif;
     letter-spacing: 1px;
     text-decoration: none !important;
     text-transform: uppercase;
@@ -565,7 +565,7 @@ button, html input[type="button"], input[type="reset"], input[type="submit"] {
 }
 
 button, input, textarea, select {
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Mallanna', sans-serif;
     font-size: 14px;
 }
 
@@ -634,11 +634,11 @@ label {
     font-size: 12px;
     margin-bottom: 10px;
     padding-right: 3px;
-    font-weight: 600;
+    font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-top: 6px;
-    font-family: 'Handlee', sans-serif;
+    font-family: 'Nunito', sans-serif;
 }
 
 .form-full {
@@ -1843,13 +1843,13 @@ form label.error {
             .nav-menu ul.nav-menu-inner li a {
                 display: block;
                 color: #a8d8f0;
-                font-size: 13px;
+                font-size: 16px;
                 line-height: 1;
                 padding: 43px 12px;
-                font-weight: 700;
+                font-weight: 600;
                 text-transform: uppercase;
                 letter-spacing: 1px;
-                font-family: 'Handlee',sans-serif;
+                font-family: 'Nunito',sans-serif;
             }
 
 .nav-menu-icon {
@@ -1976,7 +1976,7 @@ form label.error {
 }
 
 .sc-title {
-    font-weight: 800;
+    font-weight: 600;
    text-align:center;
     /*margin-top: 0px;
     margin-bottom:0;*/
@@ -2710,7 +2710,7 @@ ul.portfolio-btn-wraper, .portfolio-btn-wraper {
         letter-spacing: 1.5px;
         margin-bottom: 10px;
         text-transform: uppercase;
-        font-family: 'Handlee',sans-serif;
+        font-family: 'Nunito',sans-serif;
         font-weight: 600;
     }
 
