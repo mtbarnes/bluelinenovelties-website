@@ -319,10 +319,15 @@ h6 {
     }
 
     h1.color3, h2.color3, h3.color3, h4.color3, h5.color3, h6.color3, h6 .color3 {
-        color: #a89078;
+        color: #c090c0;
     }
 
+    h1.brown, h2.brown, h3.brown, h4.brown, h5.brown, h6.brown, h6 .brown {
+        color: #786048;
+    }
 
+    
+    
 .page-title {
     margin-bottom: 60px;
     font-weight: 600;
@@ -516,7 +521,7 @@ i.right {
 }
 
 .btn-md {
-    padding: 11px 25px !important;
+    padding: 15px 25px !important;
     display: inline-block;
 }
 
@@ -1995,7 +2000,7 @@ form label.error {
 
 .sc-paragraph-lead {
     
-    font-family: Georgia;
+    font-family: Nunito;
     font-style: italic;
     
     font-size: 20px;
