@@ -9,4 +9,4 @@ sys.path.append(PROJECT_DIR)
 
 from mainapp import application as App
 
-application = App()
+application = App
