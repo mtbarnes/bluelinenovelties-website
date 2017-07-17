@@ -1,0 +1,13 @@
+convert f1.jpg -resize 500x500 f1_thumb.jpg
+convert f2.jpg -resize 500x500 f2_thumb.jpg
+convert f3.jpg -resize 500x500 f3_thumb.jpg
+convert f4.jpg -resize 500x500 f4_thumb.jpg
+convert f5.jpg -resize 500x500 f5_thumb.jpg
+convert f6.jpg -resize 500x500 f6_thumb.jpg
+convert f7.jpg -resize 500x500 f7_thumb.jpg
+convert f8.jpg -resize 500x500 f8_thumb.jpg
+convert f9.jpg -resize 500x500 f9_thumb.jpg
+convert f10.jpg -resize 500x500 f10_thumb.jpg
+convert f11.jpg -resize 500x500 f11_thumb.jpg
+convert f12.jpg -resize 500x500 f12_thumb.jpg
+convert f13.jpg -resize 500x500 f13_thumb.jpg
