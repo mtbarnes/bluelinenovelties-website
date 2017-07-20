@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block header %}
+<!--Intro Section-->
+            <section id="intro" class="intro-fullscreen">
+                <!--Static Hero-->
+                <div class="intro-media bg-image overlay-dark60" data-background-img="{{ url_for('static', filename='img/blue_bg1.jpg') }}"></div>
+                <div class="intro-caption-waper dark-bg">
+                  <div class="intro-full-height container">
+                    <div class="intro-content">
+                      <div class="intro-content-inner">
+                        <h1 class="page-title-alt color3 mb-30" font-weight="600">Blue Line Novelties</h1>
+                        <h4 class="intro-title white mb-30">
+                          <span class="text-rotate">Art, Stickers, and More
+                          </span>
+                        </h4>
+                        <a class="btn btn-sm btn-color scroll-down" href="#about">About</a>
+                        <a class="btn btn-sm btn-color scroll-down" href="http://squareup.com/store/blue-line-novelties">Store</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+	       <!-- End Static Hero-->
+             </section>
+              <!-- End Intro Section-->
+{% endblock %}

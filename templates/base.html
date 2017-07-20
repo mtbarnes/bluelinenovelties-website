@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% block head %}
+    <meta charset="utf-8" />
+    <title>{% block title  %}Blue Line Novelties - Fun On Demand{% endblock %}</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="retail, glowsticks, local art, stickers, sticker,
+    delivery, festivals" />
+    <meta name="author" content="digitalmanifold">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+
+    <!-- Favicone Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon.ico') }}" />
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/favicon.png') }}" />
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/favicon.png') }}" />
+
+    <!-- Css -->
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ url_for('static', filename='css/bootstrap.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ url_for('static', filename='css/plugins/animate.css') }}" rel="stylesheet" type="text/css" />
+    <!-- SLIDER REVOLUTION CSS SETTINGS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='rs-plugin/css/settings.css') }}" media="screen" />
+    {% endblock %}
+</head>
+<body>
+
+    <!-- Site preloader -->
+    <section id="preloader">
+        <div class="site-spinner"></div>
+    </section>
+    <!-- End Site preloader -->
+
+    <!-- Page Wraper -->
+    <div id="page-wraper">
+        <div class="wrapper">
+
+            <!-- Header -->
+            <div id="header" class="header">
+                <div class="header-inner">
+                    <!-- Logo -->
+                    <div class="logo">
+                      <a href="#" class="logo">
+			<img src="{{ url_for('static', filename='img/logo-navbar.png') }}" alt="blueline" />
+		      </a>
+                    </div>
+                    <!-- End Logo -->
+
+                    <!--Navigation Icon-->
+                    <div class="nav-menu-icon">
+                        <a><i class="fa fa-bars"></i></a>
+                    </div>
+                    <!--End Navigation Icon-->
+
+                    <!-- Navigation Menu -->
+                    <div class="nav-menu">
+                      <ul class="nav-menu-inner">
+                        <li><a href="about">About</a></li>
+                        <li><a href="gallery">Gallery</a></li>
+			<li><a href="http://store.bluelinenovelties.com">Store</a></li>
+			<li><a href="philanthropy">Philanthropy</a></li>			
+                      </ul>
+                    </div>
+                    <!-- End Navigation Menu -->
+                </div>
+            </div>
+            <!-- End Header -->
+
+	    {% block header %}
+            <!-- Header Section -->
+            <section id="header" class="section-padding bg-image overlay-dark60 dark-bg text-center" data-stellar-background-ratio="0" data-background-img="{{ url_for('static', filename='img/blue_bg1.jpg') }}">
+              <div class="container">
+		<h1 class="page-title-alt color3 mb-30" font-weight="600">Blue Line Novelties</h1>
+                </div>
+            </section>
+            <!-- End Header Section -->	    
+	    {% endblock %}
+
+{% block content %}{% endblock %}
+
+
+
+	    {% block actionbox %}
+            <!-- Action Box Section -->
+            <section id="discounts" class="action-box action-black">
+                <div class="container">
+                    <div class="row action-box-left">
+                        <h3 class="action-box-title color3">HASHTAG<br>DISCOUNT!</h3>
+                    </div>
+                    <div class="action-box-right">
+                      <p class="max-width-700 lead white">
+			Put one of our stickers on your laptop and
+			post it online with the
+			tag <span class="color2">#bringlaptopsnovelty</span>
+			to get 15% off your next purchase!</p>
+                    </div>
+                </div>
+            </section>
+            <!-- Action Box Section -->
+	    {% endblock %}
+
+
+{% block statement %}{% endblock %}
+
+
+	<!--Footer Section-->
+            <footer id="footer" class="footer section-padding gray-bg">
+                <div class="container text-center">
+
+                    <!--Footer Logo-->
+                    <div class="footer-logo mb-25 wow fadeInUp" data-wow-duration="1.5s">
+                        <a class="scroll-top" href="#intro">
+                            <img src="{{ url_for('static', filename='img/logo-dark.png') }}" alt="mazel" />
+                        </a>
+                    </div>
+                    <!--End Footer Logo-->
+
+                    <!-- Copyright -->
+                    <p class="copyright mb-25">
+                        &copy; 2017 <a><b>Blue Line Novelties</b></a>. All Rights Reserved.<br>
+                        Template by <a href="http://nileforest.com/" target="_blank"><b>nileforest</b></a>
+                    </p>
+                    <!-- Copyright -->
+
+                    <!-- Social -->
+                    <ul class="social">
+                        <li>
+                            <a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li>
+                            <a href="https://plus.google.com/" target="_blank"><i class="fa fa-google-plus"></i></a>
+                        </li>
+                    </ul>
+                    <!-- End Social -->
+
+                </div>
+            </footer>
+            <!-- End Footer Section-->
+
+        </div>
+    </div>
+    <!-- End Page Wraper -->
+
+
+    <!-- Js -->
+    <script src="{{ url_for('static', filename='js/jquery-1.11.2.min.js') }}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='js/plugins/jquery.easing.1.3.js') }}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='js/plugins/bootstrap.min.js') }}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='js/plugins/jquery.fitvids.js') }}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='js/plugins/jquery.stellar.min.js') }}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='js/plugins/isotope.pkgd.min.js') }}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='js/plugins/jquery.appear.js') }}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='js/plugins/jquery.fs.tipper.min.js') }}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='js/plugins/jquery.countTo.js') }}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='js/plugins/owl.carousel.min.js')}}" type="text/javascript"></script>
+    <!-- SLIDER REVOLUTION SCRIPTS  -->
+    <script src="{{ url_for('static', filename='rs-plugin/js/jquery.themepunch.tools.min.js') }}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='rs-plugin/js/jquery.themepunch.revolution.min.js') }}" type="text/javascript"></script>
+    <!-- End SLIDER REVOLUTION SCRIPTS  -->
+    <script src="{{ url_for('static', filename='js/plugins/jquery.magnific-popup.min.js') }}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='js/plugins/jquery.singlePageNav.min.js') }}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='js/plugins/wow.min.js') }}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='js/plugins/jquery.validate.min.js') }}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='js/contact-form.js') }}" type="text/javascript"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='js/map.js') }}" type="text/javascript"></script>
+    <script src="{{ url_for('static', filename='js/theme.js') }}" type="text/javascript"></script>
+
+    <!-- <script type="text/javascript">
+	 //  Onepage Nav Elements
+	 $('.singlepage-nav').singlePageNav({
+	 offset: 0,
+	 filter: ':not(.external)',
+	 updateHash: true,
+	 currentClass: 'current',
+	 easing: 'swing',
+	 speed: 750,
+	 beforeStart: function () {
+	 if ($(window).width() < 991) {
+	 $('.singlepage-nav > ul').hide();
+	 };
+	 },
+	 onComplete: function () {
+	 console.log('done scrolling');
+	 }
+	 });
+	 </script>
+       -->
+    <!-- <script type="text/javascript"> -->
+    <!--     $('.countdown').downCount({ -->
+    <!--         date: '05/01/2017 12:00:00', -->
+    <!--         offset: +10 -->
+    <!--     }, function () { -->
+    <!--         alert('Welcome to the new site.'); -->
+    <!--     }); -->
+    <!-- </script> -->
+
+</body>
+</html>

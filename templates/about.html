@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+            <!-- About Section -->
+            <section id="about" class="section-padding text-center">
+                <div class="container mb-60">
+                    <div class="row text-center">
+                        <div class="col-md-6 wow slideInUp" data-wow-delay="0.2s" data-wow-duration="1s">
+                            <img src="{{ url_for('static', filename='img/crystals/ufopoop.jpg') }}" style="max-width: 457px; width: 100%;" alt="mockup" />
+                        </div>
+                        <div class="col-md-6 wow fadeIn" data-wow-delay="0.4s" data-wow-duration="2s">
+                            <div class="spacer-15"></div>
+                            <h6 class="page-title-alt color mb-10">Austin's 24/7 Fun Delivery Service</h6>
+                            <h2 class="page-title black mb-25">About<span class="text-light">us</span></h2>
+                            <p class="mb-35">
+			      Our mission is to provide you with the
+			      highest quality products at the lowest
+			      prices, any time, day or night. We're
+			      always adding new products to our
+			      inventory; visit our online store to see
+			      our selection of deliverable
+			      products.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End About Section -->
+{% endblock %}	    
+	    {% block statement %}
+            <!-- Statement1 Section -->
+            <section id="mailinglist" class="section-padding bg-image overlay-dark60 dark-bg text-center" data-stellar-background-ratio="0" data-background-img="{{ url_for('static', filename='img/fireworks/f3.jpg') }}">
+                <div class="container">
+                  <p class="max-width-700 lead">
+		    We're always growing new plants and producing
+		    fresh artwork, so our inventory changes often -
+		    sign up for our newsletter to stay informed of
+		    inventory additions, clearence sales, public
+		    events, and more! </p>
+                    <a class="btn btn-md btn-color">Sign Up</a>
+                </div>
+            </section>
+            <!-- End Statement1 Section -->
+
+	    {% endblock %}

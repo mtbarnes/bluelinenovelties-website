@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+{% block content %}
+	 	<!-- Tabs & Extra Elements -->
+	 <section id="elements" class="section-padding">
+             <div class="container text-center">
+	 	 <h2 class="page-title">Art <span class="text-light">&</span> More</h2>
+             </div>
+             <div class="container">
+	 	 <ul class="tabs-nav alt-icon-tab text-center">
+                     <li class="mb-30 active">
+	 	 	 <a href="#tab-cover-box" data-toggle="tab">
+	 	 	    <div class="alt-icon-top"><i class="fa fa-arrows"></i></div>
+	 	 	     <h6>All</h6>
+	 	 	 </a>
+                     </li>
+                     <li class="mb-30">
+	 	 	 <a href="#tab-image-slider" data-toggle="tab">
+	 	 	    <div class="alt-icon-top"><i class="fa fa-paint-brush"></i></div>
+	 	 	     <h6>Art by Taylor Green</h6>
+	 	 	 </a>
+                     </li>
+	 	 </ul>
+	 	 <div class="tabs-cont">
+                     <div id="tab-image-slider" class="tab-pane">
+			 <div class="container">
+                         <div class="row">
+                             <div class="col-md-10 col-md-offset-1">
+                                 <div class="owl-carousel image-carousel nf-carousel-theme white">
+                                     <div class="item">
+                                         <img src="{{ url_for('static', filename='img/TG/01.jpg') }}" alt="" />
+                                     </div>
+                                     <div class="item">
+                                         <img src="{{ url_for('static', filename='img/TG/02.jpg') }}" alt="" />
+                                     </div>
+                                     <div class="item">
+                                         <img src="{{ url_for('static', filename='img/TG/03.jpg') }}" alt="" />
+                                     </div>
+                                 </div>
+                             </div>
+			 </div>
+			 </div>
+                     </div>
+	 	     <div id="tab-cover-box" class="tab-pane active">
+	 		 <div class="container">
+	 		     <div class="row">
+	 			 <div class="col-md-4">
+	 			     <div class="cover-box mb-30">
+	 				 <figure class="cover-box-img">
+	 				     <img src="{{ url_for('static', filename='img/basil.jpg') }}" alt="basil" />
+	 				 </figure>
+	 				 <div class="cover-box-content">
+	 				     <h5>Live Plants</h5>
+	 				     <p>Succulents, herbs, and
+	 				     bonsai trees grown deep
+	 				     in the heart of Texas</p>
+	 				 </div>
+	 			     </div>
+	 			 </div>
+	 			 <div class="col-md-4">
+	 			     <div class="cover-box mb-30">
+	 				 <figure class="cover-box-img">
+	 				     <img src="{{ url_for('static', filename='img/sushibunny.png') }}" alt="fireworks" />
+	 				 </figure>
+	 				 <div class="cover-box-content">
+					   <h5>Stickers</h5>
+	 				   <p>High quality super
+	 				   durable vinyl stickers with
+	 				   a laminate coating that
+	 				   protects from scratches and
+	 				   water damage.</p>
+	 				 </div>
+	 			     </div>
+	 			 </div>
+	 			 <div class="col-md-4">
+	 			     <div class="cover-box mb-30">
+	 				 <figure class="cover-box-img">
+	 				     <img src="{{ url_for('static', filename='img/selenite_small.jpg') }}" alt="fireworks" />
+	 				 </figure>
+	 				 <div class="cover-box-content">
+	 				   <h5>Artwork</h5>
+	 				   <p>T-shirts, coasters, gym
+	 				   bags and more featuring
+	 				   original artwork by Austin
+	 				   locals.</p>
+	 				 </div>
+	 			     </div>
+	 			 </div>
+			     </div>
+			     <div class="row">
+	 			 <div class="col-md-4">
+	 			     <div class="cover-box mb-30">
+	 				 <figure class="cover-box-img">
+	 				     <img src="{{ url_for('static', filename='img/crystals_fossils.jpg') }}" alt="fireworks" />
+	 				 </figure>
+	 				 <div class="cover-box-content">
+					   <h5>Crystals & Fossils</h5>
+	 				   <p>Calcite, selenite,
+	 				   quartz, and fossils from
+	 				   around Austin.
+	 				   </p>
+	 				 </div>
+	 			     </div>
+	 							 </div>
+	 			 <div class="col-md-4">
+	 			     <div class="cover-box mb-30">
+	 				 <figure class="cover-box-img">
+	 				     <img src="{{ url_for('static', filename='img/yycats.png') }}" alt="fireworks" />
+	 				 </figure>
+	 				 <div class="cover-box-content">
+	 				   <h5>Party Supplies</h5>
+	 				   <p>Glow sticks, glow necklaces, Flashing LED toys and more!</p>
+	 				 </div>
+	 			     </div>
+	 			 </div>				 
+	 			 <div class="col-md-4">
+	 			     <div class="cover-box mb-30">
+	 				 <figure class="cover-box-img">
+	 				     <img src="{{ url_for('static', filename='img/water_bottles.jpg') }}" alt="fireworks" />
+	 				 </figure>
+	 				 <div class="cover-box-content">
+					   <h5>Bottled Water</h5>
+	 				   <p>No description needed,
+	 				   catch us at events downtown
+	 				   and get hydrated.
+					   </p>
+	 				 </div>
+	 			     </div>
+	 			 </div>
+	 		     </div>
+	 		 </div>
+                     </div>
+	 	 </div>
+		 
+             </div>
+	 </section>
+	 	<!-- End Tabs & Extra Elements -->
+
+{% endblock %}
