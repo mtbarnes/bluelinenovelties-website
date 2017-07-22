@@ -2,7 +2,7 @@ from flask import Flask
 import os
 from flask import render_template
 from flask.ext.navigation import Navigation
-
+from tools import get_gallery_items
 working_dir = os.path.dirname(os.path.realpath(__file__))
 template_dir = os.path.join(working_dir, 'templates')
 
@@ -30,7 +30,8 @@ def about():
 
 @app.route('/gallery')
 def gallery():
-    return render_template('gallery.html')
+    items = get_gallery_items()
+    return render_template('gallery.html', items=items)
 
 @app.route('/products')
 def products():
