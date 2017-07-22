@@ -21,7 +21,7 @@ nav.Bar('top', [
 
 @app.route('/')
 @app.route('/index')
-def intro():
+def index():
     return render_template('intro.html')
 
 @app.route('/about')
