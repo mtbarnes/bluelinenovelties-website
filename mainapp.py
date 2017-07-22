@@ -1,15 +1,25 @@
 from flask import Flask
 import os
+from flask import render_template
+from flask.ext.navigation import Navigation
+
 working_dir = os.path.dirname(os.path.realpath(__file__))
 template_dir = os.path.join(working_dir, 'templates')
 
-application = Flask(__name__, template_folder=template_dir)
-app = application
+app = Flask(__name__, template_folder=template_dir)
+nav = Navigation(app)
 
-from flask import render_template
-
+nav.Bar('top', [
+    nav.Item('Home', 'index'),
+    nav.Item('About', 'about'),    
+    nav.Item('Gallery', 'gallery'),
+    nav.Item('Products', 'products'),
+    nav.Item('Philanthropy', 'philanthropy'),
+    nav.Item('Sign Up', 'signup')
+    ])
 
 @app.route('/')
+@app.route('/index')
 def index():
     return render_template('intro.html')
 
@@ -25,6 +35,13 @@ def gallery():
 def products():
     return render_template('products.html')
 
+@app.route('/philanthropy')
+def philanthropy():
+    return render_template('philanthropy.html')
+
+@app.route('/signup')
+def signup():
+    return render_template('signup.html')
 
 
 if __name__ == '__main__':

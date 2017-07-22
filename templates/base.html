@@ -3,7 +3,7 @@
   <head>
     {% block head %}
     <meta charset="utf-8" />
-    <title>{% block title  %}Blue Line Novelties - Fun On Demand{% endblock %}</title>
+    <title>{% block title  %}{% endblock %} -- Blue Line Novelties</title>
     <meta name="description" content="" />
     <meta name="keywords" content="retail, glowsticks, local art, stickers, sticker,
     delivery, festivals" />
@@ -41,7 +41,7 @@
                 <div class="header-inner">
                     <!-- Logo -->
                     <div class="logo">
-                      <a href="#" class="logo">
+                      <a href="index" class="logo">
 			<img src="{{ url_for('static', filename='img/logo-navbar.png') }}" alt="blueline" />
 		      </a>
                     </div>
@@ -56,10 +56,12 @@
                     <!-- Navigation Menu -->
                     <div class="nav-menu">
                       <ul class="nav-menu-inner">
-                        <li><a href="about">About</a></li>
-                        <li><a href="gallery">Gallery</a></li>
-			<li><a href="http://store.bluelinenovelties.com">Store</a></li>
-			<li><a href="philanthropy">Philanthropy</a></li>			
+			{% for item in nav.top %}
+                        <li class="{{ 'active' if item.is_active else '' }}">
+			  <a href="{{ item.url }}">{{ item.label }}</a>
+			</li>
+			{% endfor %}
+			<li><a href="http://store.bluelinenovelties.com"><i class="fa fa-external-link-square"></i> Store</a></li>
                       </ul>
                     </div>
                     <!-- End Navigation Menu -->
@@ -69,9 +71,10 @@
 
 	    {% block header %}
             <!-- Header Section -->
-            <section id="header" class="section-padding bg-image overlay-dark60 dark-bg text-center" data-stellar-background-ratio="0" data-background-img="{{ url_for('static', filename='img/blue_bg1.jpg') }}">
+            <section id="header" class="section-padding-t bg-image overlay-dark60 dark-bg text-center" data-stellar-background-ratio="0" data-background-img="{{ url_for('static', filename='img/blue_bg1.jpg') }}">
               <div class="container">
 		<h1 class="page-title-alt color3 mb-30" font-weight="600">Blue Line Novelties</h1>
+		<h3 class="page-title-alt white mb-30">{% block content_title %}{% endblock %}</h3>
                 </div>
             </section>
             <!-- End Header Section -->	    
@@ -100,7 +103,6 @@
             <!-- Action Box Section -->
 	    {% endblock %}
 
-
 {% block statement %}{% endblock %}
 
 
@@ -109,7 +111,7 @@
                 <div class="container text-center">
 
                     <!--Footer Logo-->
-                    <div class="footer-logo mb-25 wow fadeInUp" data-wow-duration="1.5s">
+                    <div class="footer-logo mb-25 wow fadeInUp" data-wow-duration="0.5s">
                         <a class="scroll-top" href="#intro">
                             <img src="{{ url_for('static', filename='img/logo-dark.png') }}" alt="mazel" />
                         </a>
