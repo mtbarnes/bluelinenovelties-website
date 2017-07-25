@@ -12,7 +12,6 @@ app = Flask(__name__, template_folder=template_dir)
 application = app
 
 nav = Navigation(app)
-import views
 
 nav.Bar('top', [
     nav.Item('Home', 'index'),
@@ -23,10 +22,7 @@ nav.Bar('top', [
     nav.Item('Sign Up', 'signup')
     ])
 
-@app.route('/')
-@app.route('/index')
-def index():
-    return render_template('intro.html')
+import views
 
 
 if __name__ == '__main__':
