@@ -12,7 +12,7 @@ app = Flask(__name__, template_folder=template_dir)
 application = app
 
 nav = Navigation(app)
-import blueapp.views
+import views
 
 nav.Bar('top', [
     nav.Item('Home', 'index'),
@@ -22,3 +22,7 @@ nav.Bar('top', [
     nav.Item('Philanthropy', 'philanthropy'),
     nav.Item('Sign Up', 'signup')
     ])
+
+
+if __name__ == '__main__':
+    app.run(debug=True, port=3535, host='0.0.0.0')
