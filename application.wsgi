@@ -4,7 +4,7 @@ execfile(activate_this, dict(__file__=activate_this))
 import os, sys, logging
 logging.basicConfig(stream = sys.stderr)
 
-PROJECT_DIR = '/home/pi/blueline/'
+PROJECT_DIR = '/home/pi/blueline'
 sys.path.append(PROJECT_DIR)
 
 from mainapp import application as App

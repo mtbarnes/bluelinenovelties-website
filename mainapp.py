@@ -23,6 +23,11 @@ nav.Bar('top', [
     nav.Item('Sign Up', 'signup')
     ])
 
+@app.route('/')
+@app.route('/index')
+def index():
+    return render_template('intro.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=3535, host='0.0.0.0')
