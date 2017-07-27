@@ -1,4 +1,4 @@
-from mainapp import app
+from init_app import app
 from flask import render_template
 from tools import get_gallery_items
 
