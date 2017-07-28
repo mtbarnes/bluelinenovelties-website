@@ -1,6 +1,6 @@
 from init_app import app
 from flask import render_template
-from tools import get_gallery_items
+from models import get_gallery_items
 
 @app.route('/')
 @app.route('/index')
@@ -27,6 +27,3 @@ def philanthropy():
 @app.route('/signup')
 def signup():
     return render_template('signup.html')
-
-
-

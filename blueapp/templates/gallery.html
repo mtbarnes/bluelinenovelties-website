@@ -22,11 +22,11 @@
                         <div class="portfolio-item {% for tag in item.tags %}{{tag}} {% endfor %}">
                             <div class="portfolio-box">
                                 <a class="portfolio-image-wrap">
-                                    <img src="{{url_for('static', filename=item.thumb)}}" alt="" /></a>
+                                    <img src="{{url_for('static', filename=item.thumbfile)}}" alt="" /></a>
                                 <div class="portfolio-caption">
                                     <div class="portfolio-caption-tb">
                                         <div class="portfolio-caption-tb-cell">
-                                          <a class="gallery-popup-link" href="{{url_for('static', filename=item.file)}}" title="{{ item.name }}">
+                                          <a class="gallery-popup-link" href="{{url_for('static', filename=item.imagefile)}}" title="{{ item.name }}">
 					    <u><h6>{{ item.name }}</h6></u>
 					  </a>
                                             <p>

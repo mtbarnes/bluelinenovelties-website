@@ -1,12 +1,18 @@
 import os
 from flask import Flask
 from flask.ext.navigation import Navigation
+from flask_script import Manager
+from flask_sqlalchemy import SQLAlchemy
 
 working_dir = os.path.dirname(os.path.realpath(__file__))
 template_dir = os.path.join(working_dir, 'templates')
 
 app = Flask(__name__, template_folder=template_dir)
 application = app
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
+
+db = SQLAlchemy(app)
 
 from views import *
 
@@ -19,3 +25,7 @@ nav.Bar('top', [
     nav.Item('Philanthropy', 'philanthropy'),
     nav.Item('Sign Up', 'signup')
 ])
+
+manager = Manager(app)
+
+import blueapp.manage_commands
