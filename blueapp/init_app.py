@@ -13,7 +13,6 @@ application = app
 app.config.from_envvar('FLASK_CONFIG')
 app.config['SECRET_KEY'] = '60e14db8cbc92633350de1395a54544f5d0ad3dca5dd8fd5'
 
-
 db = SQLAlchemy(app)
 
 from views import *
