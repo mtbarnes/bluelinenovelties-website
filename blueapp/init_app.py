@@ -10,7 +10,9 @@ template_dir = os.path.join(working_dir, 'templates')
 app = Flask(__name__, template_folder=template_dir)
 application = app
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
+app.config.from_envvar('FLASK_CONFIG')
+app.config['SECRET_KEY'] = '60e14db8cbc92633350de1395a54544f5d0ad3dca5dd8fd5'
+
 
 db = SQLAlchemy(app)
 
