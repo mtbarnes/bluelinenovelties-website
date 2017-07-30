@@ -1,6 +1,17 @@
 from init_app import app
 from flask import render_template
 from models import get_gallery_items
+from flask.ext.navigation import Navigation
+
+nav = Navigation(app)
+nav.Bar('top', [
+    nav.Item('Home', 'index'),
+    nav.Item('About', 'about'),    
+    nav.Item('Gallery', 'gallery'),
+    nav.Item('Products', 'products'),
+    nav.Item('Philanthropy', 'philanthropy'),
+    nav.Item('Sign Up', 'signup')
+])
 
 
 @app.route('/')

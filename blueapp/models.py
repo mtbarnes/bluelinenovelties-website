@@ -1,4 +1,12 @@
-from blueapp.init_app import db
+from blueapp.database import db
+from flask_login import UserMixin
+
+class User(db.Model, UserMixin):
+    __tablename__ = 'users'
+    id = db.Column(db.Unicode(127), primary_key=True)
+    email = db.Column(db.Unicode(255), nullable=False, server_default=u'', unique=True)
+    password = db.Column(db.String(255), nullable=False, server_default='')
+    
 
 class GalleryItem(db.Model):
     __tablename__ = 'gallery_items'
@@ -20,7 +28,6 @@ class GalleryItem(db.Model):
 
     def __repr__(self):
         return '<GalleryItem %r>' % self.name
-
 
 
 def get_gallery_items():
