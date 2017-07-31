@@ -46,6 +46,8 @@ class GalleryItem(db.Model):
 
 
 
+
+
 def get_gallery_items():
     items = GalleryItem.query.all()
     return items
