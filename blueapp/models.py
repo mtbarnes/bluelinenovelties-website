@@ -1,5 +1,4 @@
 from blueapp.database import db
-from flask_login import UserMixin
 from flask_admin.contrib import sqla
 from init_app import app, basic_auth
 from werkzeug.exceptions import HTTPException
@@ -24,14 +23,14 @@ class ModelView(sqla.ModelView):
         return redirect(basic_auth.challenge())
 
 
-class User(db.Model, UserMixin):
-    __tablename__ = 'users'
-    id = db.Column(db.Unicode(127), primary_key=True)
-    email = db.Column(db.Unicode(255), nullable=False, server_default=u'', unique=True)
-    password = db.Column(db.String(255), nullable=False, server_default='')
+# class User(db.Model, UserMixin):
+#     __tablename__ = 'users'
+#     id = db.Column(db.Unicode(127), primary_key=True)
+#     email = db.Column(db.Unicode(255), nullable=False, server_default=u'', unique=True)
+#     password = db.Column(db.String(255), nullable=False, server_default='')
 
-    def __init__(self, id):
-        self.id = id
+#     def __init__(self, id):
+#         self.id = id
 
 class GalleryItem(db.Model):
     __tablename__ = 'gallery_items'
@@ -44,16 +43,6 @@ class GalleryItem(db.Model):
     active = db.Column(db.Boolean(), nullable=False, server_default='1')
     imagefile = db.Column(db.String(511), nullable=False, server_default='')
     thumbfile = db.Column(db.String(511), nullable=False, server_default='')
-
-    def __init__(self, name, description, imagefile, thumbfile):
-        self.name = name
-        self.description = description
-        self.imagefile = imagefile
-        self.thumbfile = thumbfile
-
-    def __repr__(self):
-        return '<GalleryItem %r>' % self.name
-
 
 
 
