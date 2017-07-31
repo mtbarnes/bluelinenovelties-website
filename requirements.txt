@@ -6,3 +6,5 @@ Flask-SQLAlchemy
 Flask-Script
 mysql-python
 Flask-Admin
+Flask-SSLify
+Flask-BasicAuth

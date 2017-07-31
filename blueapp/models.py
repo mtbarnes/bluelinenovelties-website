@@ -1,12 +1,37 @@
 from blueapp.database import db
 from flask_login import UserMixin
+from flask_admin.contrib import sqla
+from init_app import app, basic_auth
+from werkzeug.exceptions import HTTPException
+from werkzeug.wrappers import Response
+
+class AuthException(HTTPException):
+    def __init__(self, message):
+        super(AuthException, self).__init__(message, Response(
+            "Not authenticated, refresh the page or fuck off.", 401,
+            {'WWW-Authenticate': 'Basic realm="Login Required"'}
+        ))
+
+
+class ModelView(sqla.ModelView):
+    def is_accessible(self):
+        if not basic_auth.authenticate():
+            raise AuthException('Not authenticated.')
+        else:
+            return True
+
+    def inaccessible_callback(self, name, **kwargs):
+        return redirect(basic_auth.challenge())
+
 
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
     id = db.Column(db.Unicode(127), primary_key=True)
     email = db.Column(db.Unicode(255), nullable=False, server_default=u'', unique=True)
     password = db.Column(db.String(255), nullable=False, server_default='')
-    
+
+    def __init__(self, id):
+        self.id = id
 
 class GalleryItem(db.Model):
     __tablename__ = 'gallery_items'
@@ -28,6 +53,8 @@ class GalleryItem(db.Model):
 
     def __repr__(self):
         return '<GalleryItem %r>' % self.name
+
+
 
 
 def get_gallery_items():
