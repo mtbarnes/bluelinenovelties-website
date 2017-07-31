@@ -27,9 +27,9 @@ from views import *
 from database import db
 
 
-from models import GalleryItem, User, ModelView
+from models import GalleryItem, ModelView
 admin.add_view(ModelView(GalleryItem, db.session))
-admin.add_view(ModelView(User, db.session))
+
 
 manager = Manager(app)
 
