@@ -4,6 +4,7 @@ from flask_script import Manager
 from flask_admin import Admin
 from flask_sslify import SSLify
 from flask_basicauth import BasicAuth
+from flask_migrate import Migrate, MigrateCommand
 
 working_dir = os.path.dirname(os.path.realpath(__file__))
 #template_dir = os.path.join(working_dir, 'templates')
@@ -27,15 +28,18 @@ admin = Admin(app,
               template_mode='bootstrap3'
               )
 
-from views import *
+
 from database import db
 
+migrate = Migrate(app, db)
 
 from models import GalleryItem, ModelView
 admin.add_view(ModelView(GalleryItem, db.session))
 
+from views import *
 
 manager = Manager(app)
+manager.add_command('db', MigrateCommand)
 
 import blueapp.manage_commands
 

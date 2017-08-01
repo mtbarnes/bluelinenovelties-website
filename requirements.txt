@@ -8,3 +8,4 @@ mysql-python
 Flask-Admin
 Flask-SSLify
 Flask-BasicAuth
+Flask-Migrate
