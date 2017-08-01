@@ -6,9 +6,9 @@ from flask_sslify import SSLify
 from flask_basicauth import BasicAuth
 
 working_dir = os.path.dirname(os.path.realpath(__file__))
-template_dir = os.path.join(working_dir, 'templates')
+#template_dir = os.path.join(working_dir, 'templates')
 
-app = Flask(__name__, template_folder=template_dir)
+app = Flask(__name__)
 application = app
 sslify = SSLify(app)
 
@@ -21,7 +21,11 @@ else:
     app.debug = False
 
 basic_auth = BasicAuth(app)
-admin = Admin(app, name='blueapp', template_mode='bootstrap3')
+
+admin = Admin(app,
+              name='blueapp',
+              template_mode='bootstrap3'
+              )
 
 from views import *
 from database import db

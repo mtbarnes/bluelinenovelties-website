@@ -23,6 +23,7 @@ class ModelView(sqla.ModelView):
         return redirect(basic_auth.challenge())
 
 
+    
 # class User(db.Model, UserMixin):
 #     __tablename__ = 'users'
 #     id = db.Column(db.Unicode(127), primary_key=True)
