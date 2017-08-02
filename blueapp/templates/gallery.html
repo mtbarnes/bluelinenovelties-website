@@ -19,7 +19,7 @@
                     <div class="portfolio-grid-fit row gallery-popup">
 {% for item in items %}
                         <!-------> 
-                        <div class="portfolio-item {% for tag in item.tags %}{{tag}} {% endfor %}">
+                        <div class="portfolio-item {{ item.tags }}">
                             <div class="portfolio-box">
                                 <a class="portfolio-image-wrap">
                                     <img src="{{url_for('static', filename=item.thumbfile)}}" alt="" /></a>
