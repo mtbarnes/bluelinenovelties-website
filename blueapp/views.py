@@ -1,6 +1,6 @@
 from init_app import app
 from flask import render_template
-from models import get_gallery_items
+from models import get_gallery_items, get_gallery_tags
 from flask.ext.navigation import Navigation
 
 nav = Navigation(app)
@@ -26,7 +26,8 @@ def about():
 @app.route('/gallery')
 def gallery():
     items = get_gallery_items()
-    return render_template('gallery.html', items=items)
+    tags = get_gallery_tags()
+    return render_template('gallery.html', items=items, tags=tags)
 
 @app.route('/products')
 def products():
@@ -40,3 +41,6 @@ def philanthropy():
 def signup():
     return render_template('signup.html')
 
+@app.route('/shop')
+def shop():
+    return render_template('shop.html')
