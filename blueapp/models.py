@@ -59,5 +59,5 @@ def get_gallery_tags():
     tags = []
     for line in taglist:
         for tag in line.split():
-            tags.append(tag)
+            tags.append(tag.strip())
     return set(tags)
