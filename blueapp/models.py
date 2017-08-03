@@ -60,4 +60,4 @@ def get_gallery_tags():
     for line in taglist:
         for tag in line.split():
             tags.append(tag)
-    return tags
+    return set(tags)
