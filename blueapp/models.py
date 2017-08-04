@@ -50,15 +50,5 @@ class GalleryItem(db.Model):
 
 
 
-def get_gallery_items():
-    items = GalleryItem.query.all()
-    return items
 
-def get_gallery_tags():
-    taglist = [item.tags for item in GalleryItem.query.all()]
-    tags = []
-    for line in taglist:
-        for tag in line.split():
-            tags.append(tag.strip())
-    tagset = set(tags)
-    return list(tagset)
+
