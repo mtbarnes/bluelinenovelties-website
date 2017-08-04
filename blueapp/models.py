@@ -3,7 +3,6 @@ from flask_admin.contrib import sqla
 from init_app import app, basic_auth
 from werkzeug.exceptions import HTTPException
 from werkzeug.wrappers import Response
-from sets import Set
 
 class AuthException(HTTPException):
     def __init__(self, message):
@@ -62,4 +61,4 @@ def get_gallery_tags():
         for tag in line.split():
             tags.append(tag.strip())
     tagset = set(tags)
-    return list(Set(tags))
+    return list(tagset)
