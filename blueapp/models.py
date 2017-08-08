@@ -3,8 +3,7 @@ from flask_admin.contrib import sqla
 from init_app import app, basic_auth
 from werkzeug.exceptions import HTTPException
 from werkzeug.wrappers import Response
-import sqlalchemy.types as types
-from prices import Price
+
 
 class AuthException(HTTPException):
     def __init__(self, message):
@@ -50,29 +49,19 @@ class GalleryItem(db.Model):
     thumbfile = db.Column(db.String(511), nullable=False, server_default='')
 
 
-class PriceType(types.TypeDecorator):
-    impl = types.String
-
-    def process_bind_param(self, value, dialect):
-        return Price(value)
-
-    def process_result_value(self, value, dialect):
-        return value.net
-
 
 class Product(db.Model):
     __tablename__ = 'products'
     id = db.Column(db.Integer, primary_key=True)
 
-    name = db.Column(db.Unicode(255), nullable=False, server_default=u'', unique=True)
-    description = db.Column(db.String(511), nullable=False, server_default='')
+    name = db.Column(db.Unicode(255), nullable=False, server_default=u'')
+    description = db.Column(db.Unicode(511), nullable=False, server_default=u'')
     tags = db.Column(db.String(255), nullable=False, server_default='')
     creator = db.Column(db.Unicode(127), nullable=False, server_default=u'')
     imagefile = db.Column(db.String(511), nullable=False, server_default='')
-    thumbfile = db.Column(db.String(511), nullable=False, server_default='')
     quantity = db.Column(db.Integer(), nullable=False, server_default='1')
     deliverable = db.Column(db.Boolean(), nullable=False, server_default='0')
-    price = db.Column(PriceType, nullable=False, server_default="0.00")
-
+    price = db.Column(db.String(31), nullable=False, server_default="0.00")
+    
 
 

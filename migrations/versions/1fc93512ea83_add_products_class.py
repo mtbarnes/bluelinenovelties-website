@@ -7,7 +7,6 @@ Create Date: 2017-08-07 05:02:50.956723
 """
 from alembic import op
 import sqlalchemy as sa
-from blueapp.models import PriceType
 
 # revision identifiers, used by Alembic.
 revision = '1fc93512ea83'
@@ -28,7 +27,7 @@ def upgrade():
     sa.Column('thumbfile', sa.String(length=511), server_default='', nullable=False),
     sa.Column('quantity', sa.Integer(), server_default='1', nullable=False),
     sa.Column('deliverable', sa.Boolean(), server_default='0', nullable=False),
-    sa.Column('price', PriceType(), server_default='0.00', nullable=False),
+    sa.Column('price', sa.String(31), server_default='0.00', nullable=False),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('name')
     )
