@@ -10,3 +10,4 @@ Flask-SSLify
 Flask-BasicAuth
 Flask-Migrate
 pillow
+j2cli

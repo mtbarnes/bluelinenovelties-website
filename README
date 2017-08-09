@@ -1,2 +1,14 @@
 mysql-python requires libmysqlclient-dev and python-dev packages (debian)
 PIL/pillow requires libjpeg-dev
+
+to create an apache config file, customize values in apache.ini and run
+$ j2 siteconfig.j2 apache.ini > mysite.conf
+and copy the result to /etc/apache2/sites-available, then run
+$ a2ensite mysite
+to enable the site. 
+
+If not using SSL use siteconfig_noSSL.j2 instead.
+
+TO GET SSL CERTIFICATE:
+install certbot using instructions at certbot.eff.org/#debianother-apache
+
