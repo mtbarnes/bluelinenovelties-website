@@ -62,6 +62,9 @@ class Product(db.Model):
     quantity = db.Column(db.Integer(), nullable=False, server_default='1')
     deliverable = db.Column(db.Boolean(), nullable=False, server_default='0')
     price = db.Column(db.String(31), nullable=False, server_default="0.00")
-    
+
+
+# class Creator(db.Model):
+#     __tablename__ = 'creators'
 
 
