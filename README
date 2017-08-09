@@ -1,1 +1,2 @@
 mysql-python requires libmysqlclient-dev and python-dev packages (debian)
+PIL/pillow requires libjpeg-dev
