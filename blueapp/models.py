@@ -81,7 +81,7 @@ class ProductView(sqla.ModelView):
 
     form_extra_fields = {
         'imagefile' : form.ImageUploadField('Image',
-                                       base_path=image_dir,
+                                       base_path="/var/www/blueline/static/img/",
                                        thumbnail_size=(100, 100, True))
     }
 
