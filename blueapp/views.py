@@ -43,4 +43,5 @@ def signup():
 
 @app.route('/shop')
 def shop():
-    return render_template('shop.html')
+    productlist = Product.query.all()    
+    return render_template('shop.html', items=productlist)

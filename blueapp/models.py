@@ -74,14 +74,14 @@ class ProductView(sqla.ModelView):
 
         return Markup('<img src="%s">' %
                       url_for('static',
-                              filename="img/" + form.thumbgen_filename(model.imagefile)))
+                              filename="img/"+form.thumbgen_filename(model.imagefile)))
     column_formatters = {
         'imagefile' : _list_thumbnail
     }
 
     form_extra_fields = {
         'imagefile' : form.ImageUploadField('Image',
-                                       base_path="/var/www/blueline/static/img/",
+                                       base_path=image_dir,
                                        thumbnail_size=(100, 100, True))
     }
 

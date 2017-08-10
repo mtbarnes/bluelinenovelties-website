@@ -8,7 +8,7 @@ from flask_migrate import Migrate, MigrateCommand
 
 working_dir = os.path.dirname(os.path.realpath(__file__))
 #template_dir = os.path.join(working_dir, 'templates')
-image_dir = os.path.join(working_dir, 'static/img')
+
 
 app = Flask(__name__)
 application = app
@@ -16,6 +16,8 @@ sslify = SSLify(app)
 
 app.config.from_envvar('FLASK_CONFIG')
 app.config['SECRET_KEY'] = '60e14db8cbc92633350de1395a54544f5d0ad3dca5dd8fd5'
+
+image_dir = app.config['IMAGE_DIRECTORY']
 
 if (app.config['DEBUG'] == "True"):
     app.debug = True
