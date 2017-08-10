@@ -3,7 +3,10 @@ from flask_admin.contrib import sqla
 from init_app import app, basic_auth
 from werkzeug.exceptions import HTTPException
 from werkzeug.wrappers import Response
-
+from flask_admin import form
+from init_app import image_dir
+from jinja2 import Markup
+from flask import url_for
 
 class AuthException(HTTPException):
     def __init__(self, message):
@@ -62,6 +65,26 @@ class Product(db.Model):
     quantity = db.Column(db.Integer(), nullable=False, server_default='1')
     deliverable = db.Column(db.Boolean(), nullable=False, server_default='0')
     price = db.Column(db.String(31), nullable=False, server_default="0.00")
+
+
+class ProductView(sqla.ModelView):
+    def _list_thumbnail(view, context, model, name):
+        if not model.imagefile:
+            return ''
+
+        return Markup('<img src="%s">' %
+                      url_for('static',
+                              filename="img/" + form.thumbgen_filename(model.imagefile)))
+    column_formatters = {
+        'imagefile' : _list_thumbnail
+    }
+
+    form_extra_fields = {
+        'imagefile' : form.ImageUploadField('Image',
+                                       base_path=image_dir,
+                                       thumbnail_size=(100, 100, True))
+    }
+
 
 
 # class Creator(db.Model):

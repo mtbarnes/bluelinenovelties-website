@@ -8,6 +8,7 @@ from flask_migrate import Migrate, MigrateCommand
 
 working_dir = os.path.dirname(os.path.realpath(__file__))
 #template_dir = os.path.join(working_dir, 'templates')
+image_dir = os.path.join(working_dir, 'static/img')
 
 app = Flask(__name__)
 application = app
@@ -33,9 +34,9 @@ from database import db
 
 migrate = Migrate(app, db)
 
-from models import GalleryItem, Product, ModelView
+from models import GalleryItem, Product, ModelView, ProductView
 admin.add_view(ModelView(GalleryItem, db.session))
-admin.add_view(ModelView(Product, db.session))
+admin.add_view(ProductView(Product, db.session))
 
 from views import *
 
