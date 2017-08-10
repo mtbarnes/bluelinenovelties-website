@@ -44,94 +44,31 @@
 	 	     <div id="tab-cover-box" class="tab-pane active">
 	 		 <div class="container">
 	 		     <div class="row">
-	 			 <div class="col-md-4">
+
+{% for product in items %}
+			       <div class="col-md-4">
+                            <!-- <div class="tipped" data-title="Cinnamon Basil" data-tipper-options='{"direction":"top", "follow":"true"}'> -->
+
 	 			     <div class="cover-box mb-30">
 	 				 <figure class="cover-box-img">
-	 				     <img src="{{ url_for('static', filename='img/basil.jpg') }}" alt="basil" />
+	 				     <img src="{{ url_for('static', filename=product.imagefile) }}" alt="{{ product.name }}" />
 	 				 </figure>
 	 				 <div class="cover-box-content">
-	 				     <h5>Live Plants</h5>
-	 				     <p>Succulents, herbs, and
-	 				     bonsai trees grown deep
-	 				     in the heart of Texas</p>
+	 				     <h5>{{ product.name }}</h5>
+	 				     <p>{{ product.description }}</p>
 	 				 </div>
-	 			     </div>
+	 			     <!-- </div> -->
+				     </div>
 	 			 </div>
-	 			 <div class="col-md-4">
-	 			     <div class="cover-box mb-30">
-	 				 <figure class="cover-box-img">
-	 				     <img src="{{ url_for('static', filename='img/sushibunny.png') }}" alt="fireworks" />
-	 				 </figure>
-	 				 <div class="cover-box-content">
-					   <h5>Stickers</h5>
-	 				   <p>High quality super
-	 				   durable vinyl stickers with
-	 				   a laminate coating that
-	 				   protects from scratches and
-	 				   water damage.</p>
-	 				 </div>
-	 			     </div>
-	 			 </div>
-	 			 <div class="col-md-4">
-	 			     <div class="cover-box mb-30">
-	 				 <figure class="cover-box-img">
-	 				     <img src="{{ url_for('static', filename='img/selenite_small.jpg') }}" alt="fireworks" />
-	 				 </figure>
-	 				 <div class="cover-box-content">
-	 				   <h5>Artwork</h5>
-	 				   <p>T-shirts, coasters, gym
-	 				   bags and more featuring
-	 				   original artwork by Austin
-	 				   locals.</p>
-	 				 </div>
-	 			     </div>
-	 			 </div>
+
+	       {% if loop.index%3 == 0 and not loop.last %}
+   			     </div><div class="row">
+{% endif %}
+{% endfor %}				 
 			     </div>
-			     <div class="row">
-	 			 <div class="col-md-4">
-	 			     <div class="cover-box mb-30">
-	 				 <figure class="cover-box-img">
-	 				     <img src="{{ url_for('static', filename='img/crystals_fossils.jpg') }}" alt="fireworks" />
-	 				 </figure>
-	 				 <div class="cover-box-content">
-					   <h5>Crystals & Fossils</h5>
-	 				   <p>Calcite, selenite,
-	 				   quartz, and fossils from
-	 				   around Austin.
-	 				   </p>
-	 				 </div>
-	 			     </div>
-	 							 </div>
-	 			 <div class="col-md-4">
-	 			     <div class="cover-box mb-30">
-	 				 <figure class="cover-box-img">
-	 				     <img src="{{ url_for('static', filename='img/yycats.png') }}" alt="fireworks" />
-	 				 </figure>
-	 				 <div class="cover-box-content">
-	 				   <h5>Party Supplies</h5>
-	 				   <p>Glow sticks, glow necklaces, Flashing LED toys and more!</p>
-	 				 </div>
-	 			     </div>
-	 			 </div>				 
-	 			 <div class="col-md-4">
-	 			     <div class="cover-box mb-30">
-	 				 <figure class="cover-box-img">
-	 				     <img src="{{ url_for('static', filename='img/water_bottles.jpg') }}" alt="fireworks" />
-	 				 </figure>
-	 				 <div class="cover-box-content">
-					   <h5>Bottled Water</h5>
-	 				   <p>No description needed,
-	 				   catch us at events downtown
-	 				   and get hydrated.
-					   </p>
-	 				 </div>
-	 			     </div>
-	 			 </div>
-	 		     </div>
 	 		 </div>
                      </div>
 	 	 </div>
-		 
              </div>
 	 </section>
 	 	<!-- End Tabs & Extra Elements -->

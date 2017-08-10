@@ -1,6 +1,6 @@
 from init_app import app
 from flask import render_template
-from models import GalleryItem
+from models import GalleryItem, Product
 from flask.ext.navigation import Navigation
 
 nav = Navigation(app)
@@ -34,7 +34,8 @@ def gallery():
 
 @app.route('/products')
 def products():
-    return render_template('products.html')
+    productlist = Product.query.all()
+    return render_template('products.html', items=productlist)
 
 @app.route('/signup')
 def signup():

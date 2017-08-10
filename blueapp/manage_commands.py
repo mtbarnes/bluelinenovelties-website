@@ -11,6 +11,10 @@ def init_db():
     db.create_all()
 
 @manager.command
+def drop_db():
+    db.drop_all(tables="alembic_version")
+
+@manager.command
 def fill_db():
     # Add all Users
     add_items()
