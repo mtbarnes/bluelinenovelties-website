@@ -7,6 +7,8 @@ from flask_admin import form
 from init_app import image_dir
 from jinja2 import Markup
 from flask import url_for
+from sqlalchemy.event import listens_for
+from subprocess import call
 
 class AuthException(HTTPException):
     def __init__(self, message):
@@ -86,6 +88,13 @@ class ProductView(sqla.ModelView):
     }
 
 
+
+@listens_for(Product, "after_insert")
+@listens_for(Product, "after_update")
+def resize_image(mapper, connection, target):
+    image_location = image_dir + target.imagefile
+    call(['bash', image_dir+'imgoptim.sh', image_location])
+    
 
 # class Creator(db.Model):
 #     __tablename__ = 'creators'
