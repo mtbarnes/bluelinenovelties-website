@@ -86,7 +86,7 @@ class Product(db.Model):
     price = db.Column(db.String(31), nullable=False, server_default="0.00")
 
 
-class ProductView(sqla.ModelView):
+class ImageView(ModelView):
     def _list_thumbnail(view, context, model, name):
         if not model.imagefile:
             return ''
@@ -116,4 +116,10 @@ def resize_image(mapper, connection, target):
 # class Creator(db.Model):
 #     __tablename__ = 'creators'
 
-
+class ProductView(ImageView):
+    
+    form_widget_args = {
+        'description' : {
+            'rows' : 10
+        }
+    }
