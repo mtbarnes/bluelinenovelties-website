@@ -39,6 +39,7 @@ migrate = Migrate(app, db)
 from models import GalleryItem, Product, ModelView, ProductView
 admin.add_view(ModelView(GalleryItem, db.session))
 admin.add_view(ProductView(Product, db.session))
+admin.add_view(ModelView(Artist, db.session))
 
 from views import *
 
