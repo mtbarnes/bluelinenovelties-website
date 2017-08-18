@@ -39,6 +39,16 @@ class ModelView(sqla.ModelView):
 #     def __init__(self, id):
 #         self.id = id
 
+
+
+class Artist(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(63))
+    gallery_items = db.relationship('GalleryItem', backref='artist',
+                                    lazy='dynamic')
+    bio = db.Column(db.String(1023), nullable=False, server_default='')
+
+
 class GalleryItem(db.Model):
     __tablename__ = 'gallery_items'
     id = db.Column(db.Integer, primary_key=True)
@@ -52,7 +62,7 @@ class GalleryItem(db.Model):
     active = db.Column(db.Boolean(), nullable=False, server_default='1')
     imagefile = db.Column(db.String(511), nullable=False, server_default='')
     thumbfile = db.Column(db.String(511), nullable=False, server_default='')
-
+    creator_id = db.Column(db.Integer, db.ForeignKey('artist.id'))
 
 
 class Product(db.Model):
