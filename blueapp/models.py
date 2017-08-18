@@ -49,6 +49,10 @@ class Artist(db.Model):
     bio = db.Column(db.String(1023), nullable=False, server_default='')
 
 
+    def __repr__(self):
+        return self.name
+    
+
 class GalleryItem(db.Model):
     __tablename__ = 'gallery_items'
     id = db.Column(db.Integer, primary_key=True)
@@ -58,12 +62,15 @@ class GalleryItem(db.Model):
     description = db.Column(db.String(511), nullable=False, server_default='')
     # reset_password_token = db.Column(db.String(100), nullable=False, server_default='')
     tags = db.Column(db.String(255), nullable=False, server_default='')
-    creator = db.Column(db.Unicode(127), nullable=False, server_default=u'')
     active = db.Column(db.Boolean(), nullable=False, server_default='1')
     imagefile = db.Column(db.String(511), nullable=False, server_default='')
     thumbfile = db.Column(db.String(511), nullable=False, server_default='')
     creator_id = db.Column(db.Integer, db.ForeignKey('artist.id'))
 
+
+    def __repr__(self):
+        return "%s : %s" % (self.name, self.id)
+    
 
 class Product(db.Model):
     __tablename__ = 'products'
