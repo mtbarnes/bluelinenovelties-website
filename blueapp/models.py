@@ -59,9 +59,7 @@ class GalleryItem(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.Unicode(255), nullable=False, server_default=u'', unique=True)
     description = db.Column(db.String(511), nullable=False, server_default='')
-    active = db.Column(db.Boolean(), nullable=False, server_default='1')
     imagefile = db.Column(db.String(511), nullable=False, server_default='')
-    thumbfile = db.Column(db.String(511), nullable=False, server_default='')
     creator_id = db.Column(db.Integer, db.ForeignKey('creator.id'))
     tags  = db.Column(db.String(511), nullable=False, server_default='')
 
@@ -81,9 +79,10 @@ class Product(db.Model):
     deliverable = db.Column(db.Boolean(), nullable=False, server_default='0')
     price = db.Column(db.String(31), nullable=False, server_default="0.00")
     weight = db.Column(db.Float, nullable=False, server_default="0.0")
+    dimensions = db.Column(db.String(127), nullable=True)
     
     def __repr__(self):
-        return "%s : DBID%s" % (self.name, self.id)
+        return "%s - DBID:%s" % (self.name, self.id)
     
 
 class ImageView(ModelView):
@@ -109,29 +108,9 @@ class ImageView(ModelView):
 
 @listens_for(Product, "after_insert")
 @listens_for(Product, "after_update")
+@listens_for(GalleryItem, "after_insert")
+@listens_for(GalleryItem, "after_update")
 def resize_image(mapper, connection, target):
     image_location = image_dir + target.imagefile
     call(['bash', image_dir+'imgoptim.sh', image_location])
     
-
-# class Creator(db.Model):
-#     __tablename__ = 'creators'
-
-class ProductView(ImageView):
-    def _list_thumbnail(view, context, model, name):
-        if not model.imagefile:
-            return ''
-
-        full_filename = "img/"+form.thumbgen_filename(model.imagefile)
-        return Markup('<img src="%s">' %
-                      url_for('static',
-                              filename=full_filename))
-    column_formatters = {
-        'imagefile' : _list_thumbnail
-    }
-
-    form_widget_args = {
-        'description' : {
-            'rows' : 10
-        }
-    }

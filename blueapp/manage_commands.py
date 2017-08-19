@@ -12,7 +12,7 @@ def init_db():
 
 @manager.command
 def drop_db():
-    db.drop_all(tables="alembic_version")
+    db.drop_all()
 
 @manager.command
 def fill_db():
