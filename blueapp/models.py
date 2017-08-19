@@ -118,7 +118,7 @@ class ProductView(ImageView):
         if not model.imagefile:
             return ''
 
-        full_filename = "img/portfolio/"+form.thumbgen_filename(model.imagefile)
+        full_filename = "img/"+form.thumbgen_filename(model.imagefile)
         return Markup('<img src="%s">' %
                       url_for('static',
                               filename=full_filename))
