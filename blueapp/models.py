@@ -81,6 +81,9 @@ class Product(db.Model):
     deliverable = db.Column(db.Boolean(), nullable=False, server_default='0')
     price = db.Column(db.String(31), nullable=False, server_default="0.00")
 
+    def __repr__(self):
+        return "%s : DBID%s" % (self.name, self.id)
+    
 
 class ImageView(ModelView):
     def _list_thumbnail(view, context, model, name):
