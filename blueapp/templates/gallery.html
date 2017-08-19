@@ -24,11 +24,11 @@
 			  
                           <div class="portfolio-box">
                                 <a class="portfolio-image-wrap">
-                                    <img src="{{url_for('static', filename=item.imagefile)}}" alt="" /></a>
+                                    <img src="{{url_for('static', filename='img/'+item.imagefile)}}" alt="" /></a>
                                 <div class="portfolio-caption">
                                     <div class="portfolio-caption-tb">
                                         <div class="portfolio-caption-tb-cell">
-                                          <a class="gallery-popup-link" href="{{url_for('static', filename=item.imagefile)}}" title="{{ item.name }}">
+                                          <a class="gallery-popup-link" href="{{url_for('static', filename='img/'+item.imagefile)}}" title="{{ item.name }}">
 					    <u><h6>{{ item.name }}</h6></u>
 					  </a>
                                             <p>
