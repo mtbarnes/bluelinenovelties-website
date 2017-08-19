@@ -41,11 +41,12 @@ class ModelView(sqla.ModelView):
 
 
 
-class Artist(db.Model):
+class Creator(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(63))
-    gallery_items = db.relationship('GalleryItem', backref='artist',
+    gallery_items = db.relationship('GalleryItem', backref='creator',
                                     lazy='dynamic')
+    products = db.relationship('Product', backref='creator', lazy='dynamic')
     bio = db.Column(db.String(1023), nullable=False, server_default='')
 
 
@@ -56,17 +57,13 @@ class Artist(db.Model):
 class GalleryItem(db.Model):
     __tablename__ = 'gallery_items'
     id = db.Column(db.Integer, primary_key=True)
-
-    # User authentication information (required for Flask-User)
     name = db.Column(db.Unicode(255), nullable=False, server_default=u'', unique=True)
     description = db.Column(db.String(511), nullable=False, server_default='')
-    # reset_password_token = db.Column(db.String(100), nullable=False, server_default='')
-    tags = db.Column(db.String(255), nullable=False, server_default='')
     active = db.Column(db.Boolean(), nullable=False, server_default='1')
     imagefile = db.Column(db.String(511), nullable=False, server_default='')
     thumbfile = db.Column(db.String(511), nullable=False, server_default='')
-    creator_id = db.Column(db.Integer, db.ForeignKey('artist.id'))
-
+    creator_id = db.Column(db.Integer, db.ForeignKey('creator.id'))
+    tags  = db.Column(db.String(511), nullable=False, server_default='')
 
     def __repr__(self):
         return "%s : %s" % (self.name, self.id)
@@ -75,11 +72,10 @@ class GalleryItem(db.Model):
 class Product(db.Model):
     __tablename__ = 'products'
     id = db.Column(db.Integer, primary_key=True)
-
     name = db.Column(db.Unicode(255), nullable=False, server_default=u'')
     description = db.Column(db.Unicode(511), nullable=False, server_default=u'')
-    tags = db.Column(db.String(255), nullable=False, server_default='')
-    creator = db.Column(db.Unicode(127), nullable=False, server_default=u'')
+    tags  = db.Column(db.String(511), nullable=False, server_default='')
+    creator_id = db.Column(db.Integer, db.ForeignKey('creator.id'))
     imagefile = db.Column(db.String(511), nullable=False, server_default='')
     quantity = db.Column(db.Integer(), nullable=False, server_default='1')
     deliverable = db.Column(db.Boolean(), nullable=False, server_default='0')
@@ -91,9 +87,10 @@ class ImageView(ModelView):
         if not model.imagefile:
             return ''
 
+        full_filename = "img/"+form.thumbgen_filename(model.imagefile)
         return Markup('<img src="%s">' %
                       url_for('static',
-                              filename="img/"+form.thumbgen_filename(model.imagefile)))
+                              filename=full_filename))
     column_formatters = {
         'imagefile' : _list_thumbnail
     }
@@ -117,7 +114,18 @@ def resize_image(mapper, connection, target):
 #     __tablename__ = 'creators'
 
 class ProductView(ImageView):
-    
+    def _list_thumbnail(view, context, model, name):
+        if not model.imagefile:
+            return ''
+
+        full_filename = "img/portfolio/"+form.thumbgen_filename(model.imagefile)
+        return Markup('<img src="%s">' %
+                      url_for('static',
+                              filename=full_filename))
+    column_formatters = {
+        'imagefile' : _list_thumbnail
+    }
+
     form_widget_args = {
         'description' : {
             'rows' : 10

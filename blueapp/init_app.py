@@ -36,10 +36,10 @@ from database import db
 
 migrate = Migrate(app, db)
 
-from models import GalleryItem, Artist, Product, ModelView, ProductView, ImageView
+from models import GalleryItem, Creator, Product, ModelView, ProductView, ImageView
 admin.add_view(ImageView(GalleryItem, db.session))
 admin.add_view(ProductView(Product, db.session))
-admin.add_view(ModelView(Artist, db.session))
+admin.add_view(ModelView(Creator, db.session))
 
 from views import *
 
