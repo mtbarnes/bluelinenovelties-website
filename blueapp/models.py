@@ -9,6 +9,15 @@ from jinja2 import Markup
 from flask import url_for
 from sqlalchemy.event import listens_for
 from subprocess import call
+import uuid
+from werkzeug.utils import secure_filename
+import os
+
+def _imagename_uuid1_gen(obj, file_data):
+    doo, ext = os.path.splitext(file_data.filename)
+    uid = uuid.uuid1()
+    return secure_filename('{}{}'.format(uid, ext))
+
 
 class AuthException(HTTPException):
     def __init__(self, message):
@@ -100,8 +109,9 @@ class ImageView(ModelView):
 
     form_extra_fields = {
         'imagefile' : form.ImageUploadField('Image',
-                                       base_path=image_dir,
-                                       thumbnail_size=(100, 100, True))
+                                            base_path=image_dir,
+                                            thumbnail_size=(100, 100, True),
+                                            namegen=_imagename_uuid1_gen)
     }
 
 
