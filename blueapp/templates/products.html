@@ -6,42 +6,6 @@
              <div class="container text-center">
 	 	 <h2 class="page-title">Art <span class="text-light">&</span> More</h2>
              </div>
-             <div class="container">
-	 	 <ul class="tabs-nav alt-icon-tab text-center">
-                     <li class="mb-30 active">
-	 	 	 <a href="#tab-cover-box" data-toggle="tab">
-	 	 	    <div class="alt-icon-top"><i class="fa fa-arrows"></i></div>
-	 	 	     <h6>All</h6>
-	 	 	 </a>
-                     </li>
-                     <li class="mb-30">
-	 	 	 <a href="#tab-image-slider" data-toggle="tab">
-	 	 	    <div class="alt-icon-top"><i class="fa fa-paint-brush"></i></div>
-	 	 	     <h6>Art by Taylor Green</h6>
-	 	 	 </a>
-                     </li>
-	 	 </ul>
-	 	 <div class="tabs-cont">
-                     <div id="tab-image-slider" class="tab-pane">
-			 <div class="container">
-                         <div class="row">
-                             <div class="col-md-10 col-md-offset-1">
-                                 <div class="owl-carousel image-carousel nf-carousel-theme white">
-                                     <div class="item">
-                                         <img src="{{ url_for('static', filename='img/TG/01.jpg') }}" alt="" />
-                                     </div>
-                                     <div class="item">
-                                         <img src="{{ url_for('static', filename='img/TG/02.jpg') }}" alt="" />
-                                     </div>
-                                     <div class="item">
-                                         <img src="{{ url_for('static', filename='img/TG/03.jpg') }}" alt="" />
-                                     </div>
-                                 </div>
-                             </div>
-			 </div>
-			 </div>
-                     </div>
-	 	     <div id="tab-cover-box" class="tab-pane active">
 	 		 <div class="container">
 	 		     <div class="row">
 
@@ -67,8 +31,6 @@
 {% endfor %}				 
 			     </div>
 	 		 </div>
-                     </div>
-	 	 </div>
              </div>
 	 </section>
 	 	<!-- End Tabs & Extra Elements -->
