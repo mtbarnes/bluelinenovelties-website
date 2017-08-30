@@ -2,12 +2,32 @@
 {% block page_title %}Creators{% endblock %}
 {% block content_title %}Creators{% endblock %}
 {% block content %}
+            <section id="accordian_skills" class="section-padding">
+                <div class="container text-center">
+                    <h2 class="page-title">Artists <span class="text-light">&</span> Makers</h2>
+                </div>
+                <div class="container">
+                  <div class="row">
+                        <!-- Accordian -->
+                        <div class="col-md-6">
+                            <div class="accordion">
 {% for creator in creators %}
-
-<a href="{{ url_for('creatorpage.index', username=creator.username) }}">{{creator.name}}</a>
-<br>
-{{ creator.id }}
-<br>
-
+                                <div class="accordion-title">
+                                    <a href="">{{ creator.name }}</a>
+                                </div>
+                                <div class="accordion-content">
+				  {{ creator.bio }}
+				  <br>
+				<a href="{{ url_for('creatorpage.index', username=creator.username) }}">Visit Homepage</a>
+                                </div>
 {% endfor %}
+                            </div>
+                        </div>
+                        <!-- End Accordian -->
+                        <div class="col-md-6">
+                            <img src="{{ url_for('static', filename='img/fireworks/f13_thumb.jpg') }}" style="max-width: 457px; width: 100%;" alt="creators_image" />
+                        </div>
+                    </div>
+                </div>
+            </section>
 {% endblock %}
