@@ -6,7 +6,7 @@
                 <div class="container mb-60">
                     <div class="row text-center">
                         <div class="col-md-6">
-                            <img src="{{ url_for('static', filename='img/crystals/mockup01.png') }}" style="max-width: 457px; width: 100%;" alt="{{g.creator.name}}" />
+                            <img src="{{ url_for('static', filename='img/plants-in-mugs.jpg') }}" style="max-width: 457px; width: 100%;" alt="{{g.creator.name}}" />
                         </div>
                         <div class="col-md-6">
                             <div class="spacer-15"></div>
@@ -19,7 +19,8 @@
                     </div>
                 </div>
             </section>
-<!-- Portfolio Section -->
+	    {% if g.creator.gallery_items.all() %}
+	    <!-- Portfolio Section -->
             <section id="portfolio" class="section-padding-t gray-bg">
                 <div class="container text-center">
                     <h2>Gallery <span class="text-light">Items</span></h2>
@@ -79,7 +80,7 @@
                 </div>
             </section>
             <!-- End Portfolio Section -->
-
+{% endif %}
 	 	<!-- Tabs & Extra Elements -->
 	 <section id="elements" class="section-padding">
              <div class="container text-center">
