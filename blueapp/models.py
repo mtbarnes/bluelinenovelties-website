@@ -57,7 +57,7 @@ class Creator(db.Model):
                                     lazy='dynamic')
     products = db.relationship('Product', backref='creator', lazy='dynamic')
     bio = db.Column(db.String(1023), nullable=False, server_default='')
-
+    username = db.Column(db.String(31), nullable=False, unique=True)
 
     def __repr__(self):
         return self.name

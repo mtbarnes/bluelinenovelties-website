@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block page_title %}Creators{% endblock %}
+{% block content_title %}Creators{% endblock %}
+{% block content %}
+{% for creator in creators %}
+
+<a href="{{ url_for('creatorpage.index', username=creator.username) }}">{{creator.name}}</a>
+<br>
+{{ creator.id }}
+<br>
+
+{% endfor %}
+{% endblock %}

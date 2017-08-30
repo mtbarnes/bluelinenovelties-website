@@ -1,17 +1,30 @@
 from init_app import app
 from flask import render_template
-from models import GalleryItem, Product
+from models import GalleryItem, Product, Creator
 from flask.ext.navigation import Navigation
+from profile import creatorpage
 
 nav = Navigation(app)
 nav.Bar('top', [
     nav.Item('Home', 'index'),
     nav.Item('Gallery', 'gallery'),
     nav.Item('Products', 'products'),
-    nav.Item('About', 'about'),    
+    nav.Item('About', 'about'),
+    nav.Item('Creators', 'creators'),
     nav.Item('Social', 'signup')
 ])
 
+
+app.register_blueprint(creatorpage)
+
+
+@app.template_filter('tagset')
+def tag_set(items):
+    taglist = []
+    for line in [item.tags for item in items]:
+        for word in line.split():
+            taglist.append(word.strip())
+    return set(taglist)
 
 @app.route('/')
 @app.route('/index')
@@ -21,6 +34,11 @@ def index():
 @app.route('/about')
 def about():
     return render_template('about.html')
+
+@app.route('/creators')
+def creators():
+    creatorlist = Creator.query.all()
+    return render_template('creators.html', creators=creatorlist)
 
 @app.route('/gallery')
 def gallery():
