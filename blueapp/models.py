@@ -60,7 +60,7 @@ class Creator(db.Model):
     username = db.Column(db.String(31), nullable=False, unique=True)
 
     def __repr__(self):
-        return self.name
+        return self.username
     
 
 class GalleryItem(db.Model):
@@ -84,10 +84,10 @@ class Product(db.Model):
     tags  = db.Column(db.String(511), nullable=False, server_default='')
     creator_id = db.Column(db.Integer, db.ForeignKey('creator.id'))
     imagefile = db.Column(db.String(511), nullable=False, server_default='')
-    quantity = db.Column(db.Integer(), nullable=False, server_default='1')
+    quantity = db.Column(db.Integer(), nullable=True, server_default='1')
     deliverable = db.Column(db.Boolean(), nullable=False, server_default='0')
     price = db.Column(db.String(31), nullable=False, server_default="0.00")
-    weight = db.Column(db.Float, nullable=False, server_default="0.0")
+    weight = db.Column(db.Float(), nullable=True, server_default="0.0")
     dimensions = db.Column(db.String(127), nullable=True)
     
     def __repr__(self):

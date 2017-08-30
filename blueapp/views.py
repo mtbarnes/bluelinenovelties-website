@@ -6,12 +6,10 @@ from profile import creatorpage
 
 nav = Navigation(app)
 nav.Bar('top', [
-    nav.Item('Home', 'index'),
-    nav.Item('Gallery', 'gallery'),
+    nav.Item('Art', 'gallery'),
     nav.Item('Products', 'products'),
-    nav.Item('About', 'about'),
     nav.Item('Creators', 'creators'),
-    nav.Item('Social', 'signup')
+    nav.Item('About', 'about')
 ])
 
 
@@ -54,10 +52,6 @@ def gallery():
 def products():
     productlist = Product.query.all()
     return render_template('products.html', items=productlist)
-
-@app.route('/signup')
-def signup():
-    return render_template('signup.html')
 
 @app.route('/shop')
 def shop():

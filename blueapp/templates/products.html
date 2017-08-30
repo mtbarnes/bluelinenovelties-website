@@ -20,8 +20,10 @@
 	 				 </figure>
 	 				 <div class="cover-box-content">
 	 				     <h5>{{ product.name }}</h5>
+					     {% if product.price %}
 	 				     <p>${{ product.price }}</p>
-	 				     <p>{{ product.description }}</p>
+	 				     {% endif %}
+					     <p>{{ product.description }}</p>
 					     <!-- {% if product.deliverable %}
 					     <p>Deliverable<p>
 						 {% else %}
