@@ -20,6 +20,7 @@ app.config.from_envvar('FLASK_CONFIG')
 app.config['SECRET_KEY'] = '60e14db8cbc92633350de1395a54544f5d0ad3dca5dd8fd5'
 
 image_dir = app.config['IMAGE_DIRECTORY']
+static_root = app.config['STATIC_ROOT']
 
 if (app.config['DEBUG'] == "True"):
     app.debug = True
@@ -52,5 +53,5 @@ import blueapp.manage_commands
 
 assets = Environment(app)
 
-css = Bundle('css/style.css', 'css/bootstrap.css', 'css/plugins/animate.css', filters='cssmin', output='packed.css')
+css = Bundle('css/style.css', 'css/bootstrap.css', 'css/plugins/animate.css', filters='cssmin', output=static_root+'packed.css')
 assets.register('css_all', css)
