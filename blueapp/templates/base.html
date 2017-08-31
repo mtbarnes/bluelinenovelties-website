@@ -14,11 +14,14 @@
     <!-- Favicone Icon -->
     <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='img/favicon.ico') }}" />
 
+{% assets "css_all" %}
+    
     <!-- Css -->
-    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ url_for('static', filename='css/bootstrap.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ url_for('static', filename='css/plugins/animate.css') }}" rel="stylesheet" type="text/css" />
-
+    <link href="{{ ASSET_URL }}" rel="stylesheet" type="text/css" />
+    <!-- <link href="{{ url_for('static', filename='css/bootstrap.css') }}" rel="stylesheet" type="text/css" /> -->
+    <!-- <link href="{{ url_for('static', filename='css/plugins/animate.css') }}" rel="stylesheet" type="text/css" /> -->
+{% endassets %}
+    
     <!-- Fonts -->
     <link href="//fonts.googleapis.com/css?family=Nunito:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic" rel="stylesheet" type="text/css">
     <link href="//fonts.googleapis.com/css?family=Mallanna:400,100,200,300,500,600,700,800,900" rel="stylesheet" type="text/css">
@@ -78,7 +81,7 @@
             <section id="header" class="section-padding-t bg-image overlay-dark60 dark-bg text-center" data-stellar-background-ratio="0" data-background-img="{{ url_for('static', filename='img/blue_bg1.jpg') }}">
               <div class="container">
 		<h1 class="page-title-alt color3 mb-30" font-weight="600">{% block content_title %}{% endblock %}</h1>
-                </div>
+              </div>
             </section>
             <!-- End Header Section -->	    
 	    {% endblock %}
