@@ -52,6 +52,6 @@ manager.add_command('db', MigrateCommand)
 import blueapp.manage_commands
 
 assets = Environment(app)
-
-css = Bundle('css/style.css', 'css/bootstrap.css', 'css/plugins/animate.css', filters='cssmin', output=static_root+'packed.css')
+assets.directory = static_root
+css = Bundle('css/style.css', 'css/bootstrap.css', 'css/plugins/animate.css', filters='cssmin', output='packed.css')
 assets.register('css_all', css)
