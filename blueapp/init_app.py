@@ -5,8 +5,6 @@ from flask_admin import Admin
 from flask_sslify import SSLify
 from flask_basicauth import BasicAuth
 from flask_migrate import Migrate, MigrateCommand
-from flask_assets import Environment, Bundle
-
 
 working_dir = os.path.dirname(os.path.realpath(__file__))
 #template_dir = os.path.join(working_dir, 'templates')
@@ -20,7 +18,6 @@ app.config.from_envvar('FLASK_CONFIG')
 app.config['SECRET_KEY'] = '60e14db8cbc92633350de1395a54544f5d0ad3dca5dd8fd5'
 
 image_dir = app.config['IMAGE_DIRECTORY']
-static_root = app.config['STATIC_ROOT']
 
 if (app.config['DEBUG'] == "True"):
     app.debug = True
@@ -51,7 +48,3 @@ manager.add_command('db', MigrateCommand)
 
 import blueapp.manage_commands
 
-assets = Environment(app)
-assets.directory = static_root
-css = Bundle('css/style.css', 'css/bootstrap.css', 'css/plugins/animate.css', filters='cssmin', output='packed.css')
-assets.register('css_all', css)
