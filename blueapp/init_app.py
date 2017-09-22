@@ -28,8 +28,7 @@ basic_auth = BasicAuth(app)
 
 admin = Admin(app,
               name='blueapp',
-              template_mode='bootstrap3'
-              )
+              template_mode='bootstrap3')
 
 
 from database import db

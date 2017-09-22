@@ -124,3 +124,17 @@ def resize_image(mapper, connection, target):
     image_location = image_dir + target.imagefile
     call(['bash', image_dir+'imgoptim.sh', image_location])
     
+
+@listens_for(Product, "after_delete")
+@listens_for(GalleryItem, "after_delete")
+def delete_image(mapper, connection, target):
+    image_location = image_dir + target.imagefile
+    thumb_location = image_dir + form.thumbgen_filename(target.imagefile)
+    try:
+        os.remove(image_location)
+    except OSError:
+        pass
+    try:
+        os.remove(thumb_location)
+    except OSError:
+        pass
