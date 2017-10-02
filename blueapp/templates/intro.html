@@ -8,6 +8,16 @@
                   <div class="intro-full-height container">
                     <div class="intro-content">
                       <div class="intro-content-inner">
+	    {% with messages=get_flashed_messages(with_categories=True) %}
+	      {% if messages %}
+  	        {% for category, message in messages %}
+	    <div class="alert alert-{{ category }} alert-dismissable" role="alert">
+	    <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
+	      {{ message }}
+	    </div>
+		{% endfor %}
+	      {% endif %}
+	    {% endwith %}
                         <h1 class="page-title-alt color3 mb-30" font-weight="600">Blue Line Novelties</h1>
                         <h4 class="intro-title white mb-30">
                           <span class="text-rotate">Art, Stickers, and More
@@ -23,3 +33,5 @@
              </section>
               <!-- End Intro Section-->
 {% endblock %}
+
+

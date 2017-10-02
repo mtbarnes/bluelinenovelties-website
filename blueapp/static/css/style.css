@@ -379,6 +379,19 @@ h6 {
     margin-right: auto;
 }
 
+.max-width-500 {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.max-width-300 {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
 /*Paragraph*/
 p {
     font-family: 'Mallanna', sans-serif;

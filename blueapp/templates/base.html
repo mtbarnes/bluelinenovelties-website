@@ -67,6 +67,8 @@
 			{% endfor %}
 			<li><a href="http://store.bluelinenovelties.com"><i class="fa fa-external-link-square"></i> Store</a></li>
                       </ul>
+		      <br>
+		      
                     </div>
                     <!-- End Navigation Menu -->
                 </div>
@@ -82,32 +84,21 @@
             </section>
             <!-- End Header Section -->	    
 	    {% endblock %}
+	    {% with messages=get_flashed_messages(with_categories=True) %}
+	      {% if messages %}
+  	        {% for category, message in messages %}
+	    <div class="alert alert-{{ category }} alert-dismissable" role="alert">
+	    <button type="button" class="close" data-dismiss="alert"><span>&times;</span></button>
+	      {{ message }}
+	    </div>
+		{% endfor %}
+	      {% endif %}
+	    {% endwith %}
+
 
 {% block content %}{% endblock %}
-
-
-
-{% block actionbox %}
-            <!-- Action Box Section -->
-            <section id="discounts" class="action-box action-black">
-                <div class="container">
-                    <div class="row action-box-left">
-                        <h3 class="action-box-title color3">HASHTAG<br>DISCOUNT!</h3>
-                    </div>
-                    <div class="action-box-right">
-                      <p class="max-width-700 lead white">
-			Put one of our stickers on your laptop and
-			post it online with the
-			tag <span class="color2">#bringlaptopsnovelty</span>
-			to get 15% off your next purchase!</p>
-                    </div>
-                </div>
-            </section>
-            <!-- Action Box Section -->
-	    {% endblock %}
-
+{% block actionbox %}{% endblock %}
 {% block statement %}{% endblock %}
-
 
 	<!--Footer Section-->
             <footer id="footer" class="footer section-padding gray-bg">

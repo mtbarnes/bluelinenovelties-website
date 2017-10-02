@@ -4,7 +4,7 @@
 {% block content %}
             <!-- About Section -->
             <section id="about" class="section-padding text-center">
-                <div class="container mb-60">
+                <div class="container mb-10">
                     <div class="row text-center">
                         <div class="col-md-6">
                             <img src="{{ url_for('static', filename='img/crystals/ufopoop.jpg') }}" style="max-width: 457px; width: 100%;" alt="about_img" />
@@ -13,7 +13,7 @@
                             <div class="spacer-15"></div>
                             <h6 class="page-title-alt color mb-10">Austin's 24/7 Fun Delivery Service</h6>
                             <h2 class="page-title black mb-25">About<span class="text-light">us</span></h2>
-                            <p class="mb-35">
+                            <p class="mb-5">
 			      Our mission is to provide you with the
 			      highest quality products at the lowest
 			      prices, any time, day or night. We're
@@ -26,23 +26,40 @@
                 </div>
             </section>
             <!-- End About Section -->
-            <!-- Statement1 Section -->
-            <section id="mailinglist" class="section-padding bg-image overlay-dark60 dark-bg text-center" data-stellar-background-ratio="0" data-background-img="{{ url_for('static', filename='img/fireworks/f3.jpg') }}">
+{% endblock %}
+{% block actionbox %}
+            <!-- Action Box Section -->
+            <section id="mailinglist" class="section-padding bg-image overlay-dark dark-bg text-center" data-stellar-background-ratio="0" data-background-img="{{ url_for('static', filename='img/fireworks/f2.jpg') }}">
                 <div class="container">
-                  <p class="max-width-700 lead">
-		    If you're interested in purchasing original
-		    artwork, commissioning a custom design, or
-		    partnering with us to sell your art, click this
-		    button to send us an email and we'll get back to
-		    you eventually :)
-		  </p>
-                    <a class="btn btn-sm btn-color" href="mailto://contact@bluelinenovelties.com">Email us</a>
+                    <div class="row">
+<div class="col-sm-6">
+                      <p class="max-width-700 lead white">
+			Sign up for our newsletter to stay informed of
+			inventory additions, clearance sales, public
+			events, and more.
+		      </p>
+</div>
+<div class="col-sm-6">
+		  <form action="" method="post" name="signup">
+		    {{ form.hidden_tag() }}
+		    <p class="lead white">
+		      Enter your email:<br>{{ form.email }}
+		    </p>
+		      <input class="btn-contact-submit btn btn-sm btn-color" type="submit" value="Sign Up">
+		      {% for error in form.email.errors %}
+		         <span style="color: red;">[{{ error }}]</span>
+			 {% endfor %}
+                    <!-- <a class="btn btn-md btn-color">Sign Up</a> -->
+		  </form>
+</div>
+                    </div>
                 </div>
             </section>
-            <!-- End Statement1 Section -->
-
+            <!-- Action Box Section -->
+{% endblock %}
+{% block statement %}	    
         <!-- Quote Section -->
-		     <section class="ptb ptb-sm-80 section-padding" id="philanthropy">
+		     <section class="ptb-sm-10 section-padding" id="philanthropy">
                 <div class="container text-center">
                     <h3 class="page-title">Philanthropy</h3>
                 </div>
