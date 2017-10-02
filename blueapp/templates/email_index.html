@@ -1,0 +1,16 @@
+{% extends 'admin/master.html' %}
+{% block body %}
+		  <form action="" method="post" name="sendmail">
+		    {{ form.hidden_tag() }}
+		    <p>
+		      Title:<br>{{ form.title }}
+		      <br>
+		      Content:<br>{{ form.content }}
+		      <br>
+		      {% for error in form.content.errors %}
+		         <span style="color: red;">[{{ error }}]</span>
+		      {% endfor %}
+		      <input class="btn-contact-submit btn btn-sm btn-color" type="submit" value="Send Mail">
+		    </p>
+		  </form>
+{% endblock %}

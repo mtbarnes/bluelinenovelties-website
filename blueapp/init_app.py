@@ -38,11 +38,12 @@ from database import db
 migrate = Migrate(app, db)
 
 from models import GalleryItem, Creator, Product, MailingList
-from models import ModelView, ImageView
+from models import ModelView, ImageView, EmailView
 admin.add_view(ImageView(GalleryItem, db.session))
 admin.add_view(ImageView(Product, db.session))
 admin.add_view(ModelView(Creator, db.session))
 admin.add_view(ModelView(MailingList, db.session))
+admin.add_view(EmailView(name='Send mail', endpoint='email'))
 
 from views import *
 

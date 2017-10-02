@@ -1,17 +1,20 @@
 from blueapp.database import db
 from flask_admin.contrib import sqla
-from init_app import app, basic_auth
+from init_app import app, basic_auth, mail
 from werkzeug.exceptions import HTTPException
 from werkzeug.wrappers import Response
 from flask_admin import form
 from init_app import image_dir
 from jinja2 import Markup
-from flask import url_for
+from flask import url_for, flash, render_template, redirect
 from sqlalchemy.event import listens_for
 from subprocess import call
 import uuid
 from werkzeug.utils import secure_filename
 import os
+from flask_admin import BaseView, expose
+from forms import SendMailForm
+from flask_mail import Message
 
 def _imagename_uuid1_gen(obj, file_data):
     doo, ext = os.path.splitext(file_data.filename)
@@ -26,6 +29,21 @@ class AuthException(HTTPException):
             {'WWW-Authenticate': 'Basic realm="Login Required"'}
         ))
 
+
+class EmailView(BaseView):
+    @expose('/', methods=['GET', 'POST'])
+    def index(self):
+        form = SendMailForm()
+        if form.validate_on_submit():
+            result = MailingList.query.all()
+            mailinglist = [item.email for item in result]
+            msg = Message(str(form.title.data), recipients=mailinglist)
+            msg.body = str(form.content.data)
+            mail.send(msg)
+            flash('Email %s sent' %
+                  (form.title.data), 'info')
+            return redirect('/admin')
+        return self.render('email_index.html', form=form)
 
 class ModelView(sqla.ModelView):
     def is_accessible(self):
