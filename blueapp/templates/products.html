@@ -51,12 +51,12 @@
                 <div class="container">
                     <div class="row action-box-left">
 		  <form action="" method="post" name="signup">
-		    {{ mailform.hidden_tag() }}
+		    {{ mailinglistform.hidden_tag() }}
 		    <p class="lead white">
-		      Enter your email:<br>{{ mailform.email }}
+		      Enter your email:<br>{{ mailinglistform.email }}
 		    </p>
 		      <input class="btn-contact-submit btn btn-sm btn-color" type="submit" value="Sign Up">
-		      {% for error in mailform.email.errors %}
+		      {% for error in mailinglistform.email.errors %}
 		         <span style="color: red;">[{{ error }}]</span>
 			 {% endfor %}
                     <!-- <a class="btn btn-md btn-color">Sign Up</a> -->
