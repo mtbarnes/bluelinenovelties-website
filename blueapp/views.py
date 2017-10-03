@@ -27,6 +27,8 @@ def tag_set(items):
             taglist.append(word.strip())
     return set(taglist)
 
+# Add mailing list form to every template
+
 @app.route('/')
 @app.route('/index')
 def index():
