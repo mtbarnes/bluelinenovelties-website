@@ -36,22 +36,22 @@ def index():
 
 @app.route('/about', methods=['GET', 'POST'])
 def about():
-    form = MailingListForm()
-    if form.validate_on_submit():
-        if MailingList.query.filter_by(email=form.email.data).first():
+    mailform = MailingListForm()
+    if mailform.validate_on_submit():
+        if MailingList.query.filter_by(email=mailform.email.data).first():
             flash('Email %s is already on the list.' %
-                  (form.email.data), 'danger')
+                  (mailform.email.data), 'danger')
             return redirect('/about')            
-        contact = MailingList(email=form.email.data)
+        contact = MailingList(email=mailform.email.data)
         db.session.add(contact)
         db.session.commit()
-        msg = Message('Thanks for registering', recipients=[form.email.data])
+        msg = Message('Thanks for registering', recipients=[mailform.email.data])
         msg.body = "You're on the Blue Line Novelties mailing list."
         mail.send(msg)
         flash('Email %s confirmed; thanks for signing up! :)' %
-              (form.email.data), 'info')
+              (mailform.email.data), 'info')
         return redirect('/about')
-    return render_template('about.html', form=form)
+    return render_template('about.html', mailinglistform=mailform)
 
 @app.route('/creators')
 def creators():
@@ -71,22 +71,22 @@ def gallery():
 @app.route('/products', methods=['GET', 'POST'])
 def products():
     productlist = Product.query.all()
-    form = MailingListForm()
-    if form.validate_on_submit():
-        if MailingList.query.filter_by(email=form.email.data).first():
+    mailform = MailingListForm()
+    if mailform.validate_on_submit():
+        if MailingList.query.filter_by(email=mailform.email.data).first():
             flash('Email %s is already on the list.' %
-                  (form.email.data), 'danger')
+                  (mailform.email.data), 'danger')
             return redirect('/products')            
-        contact = MailingList(email=form.email.data)
+        contact = MailingList(email=mailform.email.data)
         db.session.add(contact)
         db.session.commit()
-        msg = Message('Thanks for registering', recipients=[form.email.data])
+        msg = Message('Thanks for registering', recipients=[mailform.email.data])
         msg.body = "You're on the Blue Line Novelties mailing list."
         mail.send(msg)
         flash('Email %s confirmed; thanks for signing up! :)' %
-              (form.email.data), 'info')
+              (mailform.email.data), 'info')
         return redirect('/products')
-    return render_template('products.html', items=productlist, form=form)
+    return render_template('products.html', items=productlist, mailinglistform=mailform)
 
 @app.route('/shop')
 def shop():

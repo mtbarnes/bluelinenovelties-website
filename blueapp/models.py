@@ -1,4 +1,5 @@
 from blueapp.database import db
+import datetime
 
 # class User(db.Model, UserMixin):
 #     __tablename__ = 'users'
@@ -12,10 +13,18 @@ from blueapp.database import db
 class MailingList(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(63), unique=True)
+    confirmed = db.Column(db.Boolean, nullable=False, server_default='0')
+    confirmed_on = db.Column(db.DateTime, nullable=True)
+    registered_on = db.Column(db.DateTime, nullable=True)
+
+    def __init__(**kwargs):
+        super(MailingList, self).__init__(**kwargs)
+        self.registered_on = datetime.datetime.now()
 
     def __repr__(self):
         return self.email
 
+    
 class Creator(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(63))
