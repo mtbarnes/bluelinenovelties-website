@@ -14,7 +14,7 @@ import os
 from flask_admin import BaseView, expose
 from forms import SendMailForm
 from flask_mail import Message
-from models import GalleryItem, Product
+from models import GalleryItem, Product, MailingList
 
 def _imagename_uuid1_gen(obj, file_data):
     doo, ext = os.path.splitext(file_data.filename)
