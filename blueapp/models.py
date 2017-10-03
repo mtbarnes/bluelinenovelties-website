@@ -17,7 +17,7 @@ class MailingList(db.Model):
     confirmed_on = db.Column(db.DateTime, nullable=True)
     registered_on = db.Column(db.DateTime, nullable=True)
 
-    def __init__(**kwargs):
+    def __init__(self, **kwargs):
         super(MailingList, self).__init__(**kwargs)
         self.registered_on = datetime.datetime.now()
 
