@@ -101,8 +101,10 @@ def products():
         contact = MailingList(email=mailform.email.data)
         db.session.add(contact)
         db.session.commit()
+        token = generate_confirmation_token(mailform.email.data)
+        confirmation_url = url_for('confirm_mailinglist', token=token, _external=True)
         msg = Message('Thanks for registering', recipients=[mailform.email.data])
-        msg.body = "You're on the Blue Line Novelties mailing list."
+        msg.body = "You're on the Blue Line Novelties mailing list. Use this link to activate yoru account: %s" % (confirmation_url)
         mail.send(msg)
         flash('Email %s confirmed; thanks for signing up! :)' %
               (mailform.email.data), 'info')

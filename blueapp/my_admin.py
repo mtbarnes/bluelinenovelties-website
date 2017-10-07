@@ -36,7 +36,7 @@ class EmailView(BaseView):
     def index(self):
         form = SendMailForm()
         if form.validate_on_submit():
-            result = MailingList.query.all()
+            result = MailingList.query.filter_by(confirmed=True)
             addresslist = [item.email for item in result]
             for address in addresslist:
                 msg = Message(str(form.title.data), recipients=[address])
