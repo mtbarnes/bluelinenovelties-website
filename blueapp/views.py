@@ -1,11 +1,13 @@
 from init_app import app
-from flask import render_template, flash, redirect
+from flask import render_template, flash, redirect, url_for
 from models import GalleryItem, Product, Creator, MailingList
 from flask.ext.navigation import Navigation
 from profile import creatorpage
 from forms import MailingListForm
 from init_app import db, mail
 from flask_mail import Message
+from token import generate_confirmation_token, confirm_token
+import datetime
 
 nav = Navigation(app)
 nav.Bar('top', [
@@ -45,8 +47,10 @@ def about():
         contact = MailingList(email=mailform.email.data)
         db.session.add(contact)
         db.session.commit()
+        token = generate_confirmation_token(mailform.email.data)
+        confirmation_url = url_for('confirm_mailinglist', token=token, _external=True)
         msg = Message('Thanks for registering', recipients=[mailform.email.data])
-        msg.body = "You're on the Blue Line Novelties mailing list."
+        msg.body = "You're on the Blue Line Novelties mailing list. Use this link to activate yoru account: %s" % (confirmation_url)
         mail.send(msg)
         flash('Email %s confirmed; thanks for signing up! :)' %
               (mailform.email.data), 'info')
@@ -57,6 +61,23 @@ def about():
 def creators():
     creatorlist = Creator.query.all()
     return render_template('creators.html', creators=creatorlist)
+
+@app.route('/confirm/mailinglist/<token>')
+def confirm_mailinglist(token):
+    try:
+        email = confirm_token(token)
+    except:
+        flash('Confirmation link is invalid or expired.', 'danger')
+    user = MailingList.query.filter_by(email=email).first_or_404()
+    if user.confirmed:
+        flash('Address confirmed, thanks for signing up.','info')
+    else:
+        user.confirmed = True
+        user.confirmed_on = datetime.datetime.now()
+        db.session.add(user)
+        db.session.commit()
+        flash("Address confirmed, you're on the list!", 'success')
+    return redirect('/index')
 
 @app.route('/gallery')
 def gallery():

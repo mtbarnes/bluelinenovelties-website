@@ -31,17 +31,17 @@ class AuthException(HTTPException):
 
 
 
-
 class EmailView(BaseView):
     @expose('/', methods=['GET', 'POST'])
     def index(self):
         form = SendMailForm()
         if form.validate_on_submit():
             result = MailingList.query.all()
-            mailinglist = [item.email for item in result]
-            msg = Message(str(form.title.data), recipients=mailinglist)
-            msg.body = str(form.content.data)
-            mail.send(msg)
+            addresslist = [item.email for item in result]
+            for address in addresslist:
+                msg = Message(str(form.title.data), recipients=[address])
+                msg.body = str(form.content.data)
+                mail.send(msg)
             flash('Email %s sent' %
                   (form.title.data), 'info')
             return redirect('/admin')
