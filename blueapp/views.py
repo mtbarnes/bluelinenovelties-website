@@ -92,24 +92,7 @@ def gallery():
 @app.route('/products', methods=['GET', 'POST'])
 def products():
     productlist = Product.query.all()
-    mailform = MailingListForm()
-    if mailform.validate_on_submit():
-        if MailingList.query.filter_by(email=mailform.email.data).first():
-            flash('Email %s is already on the list.' %
-                  (mailform.email.data), 'danger')
-            return redirect('/products')            
-        contact = MailingList(email=mailform.email.data)
-        db.session.add(contact)
-        db.session.commit()
-        token = generate_confirmation_token(mailform.email.data)
-        confirmation_url = url_for('confirm_mailinglist', token=token, _external=True)
-        msg = Message('Thanks for registering', recipients=[mailform.email.data])
-        msg.body = "You're on the Blue Line Novelties mailing list. Use this link to activate yoru account: %s" % (confirmation_url)
-        mail.send(msg)
-        flash('Email %s confirmed; thanks for signing up! :)' %
-              (mailform.email.data), 'info')
-        return redirect('/products')
-    return render_template('products.html', items=productlist, mailinglistform=mailform)
+    return render_template('products.html', items=productlist)
 
 @app.route('/shop')
 def shop():
