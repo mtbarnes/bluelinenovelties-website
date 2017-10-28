@@ -40,7 +40,11 @@ class EmailView(BaseView):
             addresslist = [item.email for item in result]
             for address in addresslist:
                 msg = Message(str(form.title.data), recipients=[address])
-                msg.body = str(form.content.data)
+                message = {'title' : form.title.data,
+                           'subtitle' : form.subtitle.data,
+                           'content' : form.content.data
+                }
+                msg.html = render_template('email/email_base.html', message=message)
                 mail.send(msg)
             flash('Email %s sent' %
                   (form.title.data), 'info')

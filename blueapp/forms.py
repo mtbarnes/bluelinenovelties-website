@@ -9,4 +9,5 @@ class MailingListForm(Form):
 
 class SendMailForm(Form):
     title = StringField('Title', [validators.Length(min=1)])
+    subtitle = StringField('Subitle', [validators.Length(min=1)])
     content = TextAreaField('Content', [validators.InputRequired()])
