@@ -32,18 +32,18 @@ def tag_set(items):
 # Add mailing list form to every template
 
 @app.route('/')
-@app.route('/index')
+@app.route('/index/')
 def index():
     return render_template('intro.html')
 
-@app.route('/about', methods=['GET', 'POST'])
+@app.route('/about/', methods=['GET', 'POST'])
 def about():
     mailform = MailingListForm()
     if mailform.validate_on_submit():
         if MailingList.query.filter_by(email=mailform.email.data).first():
             flash('Email %s is already on the list.' %
                   (mailform.email.data), 'danger')
-            return redirect('/about')            
+            return redirect(url_for('about'))            
         contact = MailingList(email=mailform.email.data)
         db.session.add(contact)
         db.session.commit()
@@ -54,10 +54,10 @@ def about():
         mail.send(msg)
         flash('Email %s confirmed; thanks for signing up! :)' %
               (mailform.email.data), 'info')
-        return redirect('/about')
+        return redirect(url_for('about'))
     return render_template('about.html', mailinglistform=mailform)
 
-@app.route('/creators')
+@app.route('/creators/')
 def creators():
     creatorlist = Creator.query.all()
     return render_template('creators.html', creators=creatorlist)
@@ -77,9 +77,9 @@ def confirm_mailinglist(token):
         db.session.add(user)
         db.session.commit()
         flash("Address confirmed, you're on the list!", 'success')
-    return redirect('/index')
+    return redirect(url_for('index'))
 
-@app.route('/gallery')
+@app.route('/gallery/')
 def gallery():
     items = GalleryItem.query.all()
     taglist = []
@@ -89,12 +89,12 @@ def gallery():
     tags = set(taglist)
     return render_template('gallery.html', items=items, tags=tags)
 
-@app.route('/products', methods=['GET', 'POST'])
+@app.route('/products/', methods=['GET', 'POST'])
 def products():
     productlist = Product.query.all()
     return render_template('products.html', items=productlist)
 
-@app.route('/shop')
+@app.route('/shop/')
 def shop():
     productlist = Product.query.all()    
     return render_template('shop.html', items=productlist)
