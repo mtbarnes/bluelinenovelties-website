@@ -81,7 +81,7 @@ def confirm_mailinglist(token):
 
 @app.route('/gallery/')
 def gallery():
-    items = GalleryItem.query.all()
+    items = GalleryItem.query.filter_by(visible=True)
     taglist = []
     for line in [item.tags for item in items]:
         for word in line.split():
@@ -91,7 +91,7 @@ def gallery():
 
 @app.route('/products/', methods=['GET', 'POST'])
 def products():
-    productlist = Product.query.all()
+    productlist = Product.query.filter_by(visible=True)
     return render_template('products.html', items=productlist)
 
 @app.route('/shop/')

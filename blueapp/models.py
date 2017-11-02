@@ -46,6 +46,7 @@ class GalleryItem(db.Model):
     imagefile = db.Column(db.String(511), nullable=False, server_default='')
     creator_id = db.Column(db.Integer, db.ForeignKey('creator.id'))
     tags  = db.Column(db.String(511), nullable=False, server_default='')
+    visible = db.Column(db.Boolean(), nullable=False, server_default='1')
 
     def __repr__(self):
         return "%s : %s" % (self.name, self.id)
@@ -64,6 +65,7 @@ class Product(db.Model):
     price = db.Column(db.String(31), nullable=False, server_default="0.00")
     weight = db.Column(db.Float(), nullable=True, server_default="0.0")
     dimensions = db.Column(db.String(127), nullable=True)
+    visible = db.Column(db.Boolean(), nullable=False, server_default='1')
     
     def __repr__(self):
         return "%s - DBID:%s" % (self.name, self.id)
