@@ -76,6 +76,8 @@ class ImageView(ModelView):
         'imagefile' : _list_thumbnail
     }
 
+    column_editable_list = ['visible', 'tags', 'name', 'tags']
+    
     form_extra_fields = {
         'imagefile' : form.ImageUploadField('Image',
                                             base_path=image_dir,
