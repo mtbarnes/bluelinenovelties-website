@@ -1,35 +1,38 @@
 {% extends "base.html" %}
-{% block page_title %}Sign Up{% endblock %}
-{% block content_title %}Sign Up{% endblock %}
+{% block page_title %}Mailing List{% endblock %}
+{% block content_title %}Mailing List{% endblock %}
 {% block content %}
-            <!-- About Section -->
-            <section id="signup" class="section-padding text-center">
-                <div class="container mb-60">
+<!-- About Section -->
+            <section id="about" class="section-padding text-center">
+                <div class="container mb-10">
                     <div class="row text-center">
-                        <div class="col-md-6 wow slideInUp" data-wow-delay="0.2s" data-wow-duration="0.4s">
-                            <img src="{{ url_for('static', filename='img/crystals/mockup01.png') }}" style="max-width: 457px; width: 100%;" alt="mockup" />
+                      <div class="col-md-6">
+                        <h5 class="page-title-alt color mb-10">The Blue Line Noveltes</h5>
+                            <h2 class="page-title black mb-25">Mailing<span class="text-light">list</span></h2>
+			<p class="max-width-700">
+			Sign up for our newsletter to stay informed of
+			inventory additions, clearance sales, public
+			events, and more.
+		      </p>
                         </div>
-                        <div class="col-md-6 wow fadeIn" data-wow-delay="0.4s" data-wow-duration="0.6s">
-                            <div class="spacer-15"></div>
-                            <h6 class="page-title-alt color mb-10">Stay Informed</h6>
-                            <h2 class="page-title black mb-25">Mailing<span class="text-light">List</span></h2>
-                            <p class="mb-35">
-			      Best mailing list in Austin, guaranteed.
-			    </p>
-                        </div>
+                        <div class="col-md-6">
+                            <div class="spacer-30"></div>
+		  <form action="" method="post" name="signup">
+		    {{ mailinglistform.hidden_tag() }}
+		    <p class="lead">
+		      Enter your email:<br>{{ mailinglistform.email }}
+		    </p>
+		      <input class="btn-contact-submit btn btn-sm btn-color" type="submit" value="Sign Up">
+		      {% for error in mailinglistform.email.errors %}
+		         <span style="color: red;">[{{ error }}]</span>
+			 {% endfor %}
+                    <!-- <a class="btn btn-md btn-color">Sign Up</a> -->
+		  </form>
+                 </div>
                     </div>
                 </div>
             </section>
-            <!-- Statement1 Section -->
-            <section id="mailinglist" class="section-padding bg-image overlay-dark60 dark-bg text-center" data-stellar-background-ratio="0" data-background-img="{{ url_for('static', filename='img/fireworks/f3.jpg') }}">
-                <div class="container">
-                  <p class="max-width-700 lead">
-		    Sign up for our newsletter to stay informed of
-		    inventory additions, clearance sales, public
-		    events, and more.</p>
-                    <a class="btn btn-md btn-color">Sign Up</a>
-                </div>
-            </section>
-            <!-- End Statement1 Section -->
-
+            <!-- End About Section -->
+	    {% endblock %}
+	    {% block actionbox %}
 {% endblock %}

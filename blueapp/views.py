@@ -36,14 +36,14 @@ def tag_set(items):
 def index():
     return render_template('intro.html')
 
-@app.route('/about/', methods=['GET', 'POST'])
-def about():
+@app.route('/signup/', methods=['GET', 'POST'])
+def signup():
     mailform = MailingListForm()
     if mailform.validate_on_submit():
         if MailingList.query.filter_by(email=mailform.email.data).first():
             flash('Email %s is already on the list.' %
                   (mailform.email.data), 'danger')
-            return redirect(url_for('about'))            
+            return redirect(url_for('signup'))            
         contact = MailingList(email=mailform.email.data)
         db.session.add(contact)
         db.session.commit()
@@ -54,8 +54,13 @@ def about():
         mail.send(msg)
         flash('Email %s confirmed; thanks for signing up! :)' %
               (mailform.email.data), 'info')
-        return redirect(url_for('about'))
-    return render_template('about.html', mailinglistform=mailform)
+        return redirect(url_for('products'))
+    return render_template('signup.html', mailinglistform=mailform)
+
+
+@app.route('/about/')
+def about():
+    return render_template('about.html')
 
 @app.route('/creators/')
 def creators():
