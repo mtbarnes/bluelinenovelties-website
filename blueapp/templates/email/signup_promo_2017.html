@@ -1,0 +1,8 @@
+{% extends "email/email_base.html" %}
+{% block body %}
+<h3>You're almost on the Blue Line Novelties mailing list!</h3>
+<p>We just need to verify your address: <a href={{ confirmation_url }}>click here to verify</a> or visit the following URL in any web browser.
+<br>
+{{ confirmation_url }}
+</p>
+{% endblock %}
