@@ -50,7 +50,7 @@ def signup():
         token = generate_confirmation_token(mailform.email.data)
         confirmation_url = url_for('confirm_mailinglist', token=token, _external=True)
         msg = Message('Thanks for registering', recipients=[mailform.email.data])
-        msg.body = "You're on the Blue Line Novelties mailing list. Use this link to activate yoru account: %s" % (confirmation_url)
+        msg.body = "You're on the Blue Line Novelties mailing list. Use this link to activate your account: %s" % (confirmation_url)
         mail.send(msg)
         flash('Email %s confirmed; thanks for signing up! :)' %
               (mailform.email.data), 'info')
@@ -99,7 +99,11 @@ def products():
     productlist = Product.query.filter_by(visible=True)
     return render_template('products.html', items=productlist)
 
-@app.route('/shop/')
-def shop():
+# @app.route('/shop/')
+# def shop():
+#     productlist = Product.query.all()    
+#     return render_template('shop.html', items=productlist)
+@app.route('/store/')
+def store():
     productlist = Product.query.all()    
-    return render_template('shop.html', items=productlist)
+    return redirect("http://store.bluelinenovelties.com")

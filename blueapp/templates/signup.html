@@ -16,13 +16,13 @@
 		      </p>
                         </div>
                         <div class="col-md-6">
-                            <div class="spacer-30"></div>
-		  <form action="" method="post" name="signup">
+                            <div class="spacer-20"></div>
+		  <form action="" method="post" name="signup" class="contact-form">
 		    {{ mailinglistform.hidden_tag() }}
 		    <p class="lead">
-		      Enter your email:<br>{{ mailinglistform.email }}
+		      Enter your email:<br>{{ mailinglistform.email(class_="input-md form-full") }}
 		    </p>
-		      <input class="btn-contact-submit btn btn-sm btn-color" type="submit" value="Sign Up">
+		      <input class="btn btn-sm btn-color" type="submit" value="Sign Up">
 		      {% for error in mailinglistform.email.errors %}
 		         <span style="color: red;">[{{ error }}]</span>
 			 {% endfor %}
