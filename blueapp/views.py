@@ -50,9 +50,9 @@ def signup():
         token = generate_confirmation_token(mailform.email.data)
         confirmation_url = url_for('confirm_mailinglist', token=token, _external=True)
         msg = Message('Thanks for registering', recipients=[mailform.email.data])
-        msg.body = "You're on the Blue Line Novelties mailing list. Use this link to activate your account: %s" % (confirmation_url)
+        msg.body = "You're almost on the Blue Line Novelties mailing list. Use this link to verify your address:   %s" % (confirmation_url)
         mail.send(msg)
-        flash('Email %s confirmed; thanks for signing up! :)' %
+        flash('A confirmation email has been sent to %s, please follow the instructions therein to complete the registration process.' %
               (mailform.email.data), 'info')
         return redirect(url_for('products'))
     return render_template('signup.html', mailinglistform=mailform)
