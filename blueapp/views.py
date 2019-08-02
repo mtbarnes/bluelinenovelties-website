@@ -20,7 +20,14 @@ nav.Bar('top', [
 
 app.register_blueprint(creatorpage)
 
+# Custom error handlers
+@app.errorhandler(500)
+def internal_error(error):
+    db.session.rollback()
+    return "a server error occurred", 500
 
+
+# Custom filters for jinja templates
 @app.template_filter('tagset')
 def tag_set(items):
     taglist = []
@@ -29,8 +36,10 @@ def tag_set(items):
             taglist.append(word.strip())
     return set(taglist)
 
-# Add mailing list form to every template
+# TODO Add mailing list form to every template
 
+
+# Routes
 @app.route('/')
 @app.route('/index/')
 def index():

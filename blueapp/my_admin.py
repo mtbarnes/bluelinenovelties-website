@@ -25,7 +25,7 @@ def _imagename_uuid1_gen(obj, file_data):
 class AuthException(HTTPException):
     def __init__(self, message):
         super(AuthException, self).__init__(message, Response(
-            "Not authenticated, refresh the page or fuck off.", 401,
+            "Not authenticated, refresh the page.", 401,
             {'WWW-Authenticate': 'Basic realm="Login Required"'}
         ))
 
@@ -67,7 +67,7 @@ class ImageView(ModelView):
     def _list_thumbnail(view, context, model, name):
         if not model.imagefile:
             return ''
-
+        # This is a horrible kludge!
         full_filename = "img/"+form.thumbgen_filename(model.imagefile)
         return Markup('<img src="%s">' %
                       url_for('static',

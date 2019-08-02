@@ -16,8 +16,8 @@ application = app
 sslify = SSLify(app)
 
 app.config.from_envvar('FLASK_CONFIG')
-app.config['SECRET_KEY'] = '60e14db8cbc92633350de1395a54544f5d0ad3dca5dd8fd5'
-app.config['SECURITY_PWD_SALT'] = '60e14db8cbc92633350de13ei38kdj8fij3k'
+app.config['SECRET_KEY'] = '60e14db8cbc92633350de1395a54544f5d0ad3dca5dd8fd5' # TODO: change this
+app.config['SECURITY_PWD_SALT'] = '60e14db8cbc92633350de13ei38kdj8fij3k'      # TODO: change this
 image_dir = app.config['IMAGE_DIRECTORY']
 
 if (app.config['DEBUG'] == "True"):

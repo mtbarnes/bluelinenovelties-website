@@ -21,7 +21,7 @@ def fill_db():
     
 
 def add_items():
-    """ Create users when app starts """
+    """ Create items when app starts """
     items = init_gallery_items()
     for item in items:
         find_or_create_item(item['name'], item['description'],
